@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ChatGPT on Zero6992</title>
+    <link>https://zero6992.github.io/tags/chatgpt/</link>
+    <description>Recent content in ChatGPT on Zero6992</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Zero6992</copyright>
+    <lastBuildDate>Fri, 10 Mar 2023 15:49:00 +0800</lastBuildDate><atom:link href="https://zero6992.github.io/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChatGPT Discord Bot 中文教學</title>
+      <link>https://zero6992.github.io/posts/chatgpt-discord-bot-chinese/</link>
+      <pubDate>Fri, 10 Mar 2023 15:49:00 +0800</pubDate>
+      
+      <guid>https://zero6992.github.io/posts/chatgpt-discord-bot-chinese/</guid>
+      <description>此頁面為 https://github.com/Zero6992/chatGPT-discord-bot 的中文說明
+功能 /chat 與ChatGPT聊天！ /private 切換至私人模式 /public 切換至公開模式 /replyall 在回覆所有模式和預設模式之間切換 /reset 清除ChatGPT的對話歷史 /chat-model 切換不同的聊天模型 修改.env文件中的CHAT_MODEL可更改預設模型 OFFICIAL: GPT-3.5模型 UNOFFICIAL: ChatGPT Website model 聊天 /chat
+模式 /pubalic（預設模式） 機器人直接在頻道上回覆 /private 機器人的回覆只能被使用該命令的人看到 /replyall 機器人將回覆頻道中的所有訊息，而不使用斜槓命令（/chat也將無法使用） 警告 在/raplyall模式下，機器人很容易被觸發，可能會導致程式失敗
+設置 安裝前的必要設置 推薦的Python版本為3.10 在安裝好的資料夾下執行pip3 install -r requirements.txt 將文件的名稱.env.dev更改為.env 步驟1：創建Discord機器人 前往 discord developers 創建一個 Application
+在Application下建立Discord機器人
+從機器人設置中獲取token
+將token存儲到.env中的DISCORD_BOT_TOKEN下
+將「MESSAGE CONTENT INTENT」選項打開
+通過OAuth2 URL生成器邀請網址將你的機器人邀請加入你的伺服器
+步驟2：官方API身份驗證 生成OpenAI API金鑰 前往https://beta.openai.com/account/api-keys
+點擊「創建新的秘密金鑰」
+將秘密金鑰存儲到.env中的OPENAI_API_KEY下
+你現在可以進行步驟3了
+步驟2：ChatGPT模型網站身份驗證-2種方法 電子郵件/密碼身份驗證（不支持Google/Microsoft帳戶） 在 openAI 上創建帳戶
+將您的電子郵件保存到.env的OPENAI_EMAIL下</description>
+    </item>
+    
+  </channel>
+</rss>
