@@ -28,7 +28,7 @@
 將秘密金鑰存儲到.env中的OPENAI_API_KEY下
 你現在可以進行步驟3了
 步驟2：ChatGPT模型網站身份驗證-2種方法 電子郵件/密碼身份驗證（不支持Google/Microsoft帳戶） 在 openAI 上創建帳戶
-將您的電子郵件保存到.env的OPENAI_EMAIL下</description>
+將你的電子郵件保存到.env的OPENAI_EMAIL下</description>
     </item>
     
   </channel>
