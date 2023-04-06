@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="ChatGPT Discord 機器人">
+    <meta name="author" content="Zero6992">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2023/03/09/chatgpt-discord-bot-chinese/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="ChatGPT Discord 機器人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="建立自己的ChatGPT Discord機器人">
+<meta property="og:url" content="http://example.com/2023/03/09/chatGPT-discord-bot-chinese/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ChatGPT Discord 機器人">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/206497774-47d960cd-1aeb-4fba-9af5-1f9d6ff41f00.gif">
+<meta property="og:image" content="https://user-images.githubusercontent.com/91911303/223772051-13f840d5-99ef-4762-98d2-d15ce23cbbd5.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/91911303/223772334-7aece61f-ead7-4119-bcd4-7274979c4702.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/206565977-d7c5d405-fdb4-4202-bbdd-715b7c8e8415.gif">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/206565873-b181e600-e793-4a94-a978-47f806b986da.gif">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/205949161-4b508c6d-19a7-49b6-b8ed-7525ddbef430.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/222661803-a7537ca7-88ae-4e66-9bec-384f3e83e6bd.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/205949323-4354bd7d-9bb9-4f4b-a87e-deb9933a89b5.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/205949600-0c7ddb40-7e8247a0-b59a-b089f929d177.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/207970699-2e0cb671-8636-4e27-b1f3-b75d6db9b57e.PNG">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/207697217-e03357b3-3b3d-44d0-b880-163217ed4a49.PNG">
+<meta property="article:published_time" content="2023-03-09T23:49:00.000Z">
+<meta property="article:modified_time" content="2023-04-06T09:04:21.597Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="ChatGPT Discord 機器人">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="Discord 機器人">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/89479282/206497774-47d960cd-1aeb-4fba-9af5-1f9d6ff41f00.gif">
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/zero.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/zero.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/zero.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            建立自己的ChatGPT Discord機器人 -
+        
+        Zeros and Ones
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/assets/fonts.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"recommendation","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Zero6992's site","subtitle":{"text":[],"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/Zero6992","instagram":null,"zhihu":null,"twitter":"https://twitter.com/ha1fu","email":"zero69992@gmail.com","linkedin":"https://www.linkedin.com/in/andy-fang-5793a1220/"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"audios":[{"name":null,"artist":null,"url":null,"cover":null},{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Zeros and Ones
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            
+            
+                <div class="article-title">
+                    <h1 class="article-title-regular">建立自己的ChatGPT Discord機器人</h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/zero2.webp">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Zero6992</span>
+                            
+                                <span class="author-label"></span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-03-09 23:49</span>
+        <span class="mobile">2023-03-09 23:49</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-04-06 09:04:21</span>
+            <span class="mobile">2023-04-06 09:04</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/ChatGPT-Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA/">ChatGPT Discord 機器人</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/ChatGPT/">ChatGPT</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA/">Discord 機器人</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <blockquote>
+<p>此頁面程式碼在 <a class="link"   target="_blank" rel="noopener" href="https://github.com/Zero6992/chatGPT-discord-bot" >https://github.com/Zero6992/chatGPT-discord-bot <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>2023-04-01 只有 Plus 帳戶可以使用非官方模型</p>
+<p>2023-03-27 現在支援 Bard 模型</p>
+</blockquote>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li><p><code>/chat [訊息]</code> 和 ChatGPT 聊天！</p>
+</li>
+<li><p><code>/draw [提示]</code> 用 Dalle2 模型生成圖像 (必須填入Openai API key)</p>
+</li>
+<li><p><code>/switchpersona [角色]</code> 切換可選的 ChatGPT 人格模式</p>
+<ul>
+<li><code>random</code>: 隨機選擇一個角色</li>
+<li><code>chatGPT</code>: 標準的 chatGPT 模式</li>
+<li><code>dan</code>: Dan 模式 11.0，惡名昭彰的 Do Anything Now 模式</li>
+<li><code>sda</code>: 更自由的 Superior DAN 模式</li>
+<li><code>confidant</code>: 邪惡的信任顧問</li>
+<li><code>based</code>: BasedGPT v2，性感的 gpt</li>
+<li><code>oppo</code>: OPPO 會說與 chatGPT 完全相反的話</li>
+<li><code>dev</code>: 開發者模式，v2 開發者模式已啟用</li>
+</ul>
+</li>
+<li><p><code>/private</code> ChatGPT 切換到私人模式</p>
+</li>
+<li><p><code>/public</code> ChatGPT 切換到公開模式</p>
+</li>
+<li><p><code>/replyall</code> ChatGPT 在replyall模式和預設模式之間切換</p>
+</li>
+<li><p><code>/reset</code> 清除 ChatGPT 的所有記憶</p>
+</li>
+<li><p><code>/chat-model</code> 切換不同的聊天模型</p>
+<ul>
+<li><code>OFFICIAL-GPT-3.5</code>: GPT-3.5 模型</li>
+<li><code>OFFICIAL-GPT-4.0</code>: GPT-4.0 模型（確保你的帳戶可以訪問 gpt-4 模型）</li>
+<li><code>Website ChatGPT-3.5</code>: 網站 ChatGPT-3.5 模型（非官方）</li>
+<li><code>Website ChatGPT-4.0</code>: 網站 ChatGPT-4.0 模型（非官方）（如果你有 Plus 帳戶的話可以用）</li>
+<li><code>Bard</code>: Google Bard 模型</li>
+</ul>
+</li>
+</ul>
+<h3 id="聊天"><a href="#聊天" class="headerlink" title="聊天"></a>聊天</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/206497774-47d960cd-1aeb-4fba-9af5-1f9d6ff41f00.gif"
+                      alt="image"
+                ></p>
+<h3 id="繪圖"><a href="#繪圖" class="headerlink" title="繪圖"></a>繪圖</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/91911303/223772051-13f840d5-99ef-4762-98d2-d15ce23cbbd5.png"
+                      alt="image"
+                ></p>
+<h3 id="切換角色"><a href="#切換角色" class="headerlink" title="切換角色"></a>切換角色</h3><blockquote>
+<p><strong>警告</strong></p>
+<p>使用某些角色可能會產生粗俗或令人不安的內容。請自行承擔風險。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/91911303/223772334-7aece61f-ead7-4119-bcd4-7274979c4702.png"
+                      alt="image"
+                ></p>
+<h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><ul>
+<li><p><code>public mode (default)</code> 機器人直接在頻道上回覆</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/206565977-d7c5d405-fdb4-4202-bbdd-715b7c8e8415.gif"
+                      alt="image"
+                ></p>
+</li>
+<li><p><code>private mode</code> 只有使用命令的人才能看到機器人的回覆</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/206565873-b181e600-e793-4a94-a978-47f806b986da.gif"
+                      alt="image"
+                ></p>
+</li>
+<li><p><code>replyall mode</code> 機器人將在不使用斜杠命令的情況下回覆頻道中的所有訊息（<code>/chat</code> 也將不可用）</p>
+<blockquote>
+<p><strong>警告</strong><br>在 <code>replyall</code> 模式下，機器人很容易被觸發，可能導致程序失敗</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="設置"><a href="#設置" class="headerlink" title="設置"></a>設置</h1><h2 id="安裝前注意事項"><a href="#安裝前注意事項" class="headerlink" title="安裝前注意事項"></a>安裝前注意事項</h2><ul>
+<li><p>執行 <code>pip3 install -r requirements.txt</code></p>
+</li>
+<li><p><strong>將文件 <code>.env.dev</code> 重命名為 <code>.env</code></strong></p>
+</li>
+<li><p>建議的 Python 版本 <code>3.10</code></p>
+</li>
+</ul>
+<h2 id="步驟1：創立一個-Discord-機器人"><a href="#步驟1：創立一個-Discord-機器人" class="headerlink" title="步驟1：創立一個 Discord 機器人"></a>步驟1：創立一個 Discord 機器人</h2><ol>
+<li><p>前往 <a class="link"   target="_blank" rel="noopener" href="https://discord.com/developers/applications" >https://discord.com/developers/applications <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 創建一個應用程式</p>
+</li>
+<li><p>在該應用程式下建立一個 Discord 機器人</p>
+</li>
+<li><p>從機器人設置中獲取token</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/205949161-4b508c6d-19a7-49b6-b8ed-7525ddbef430.png"
+                      alt="image"
+                ></p>
+</li>
+<li><p>將token存儲到 <code>.env</code> 中的 <code>DISCORD_BOT_TOKEN</code></p>
+<img  height="190" width="390" alt="image" 
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/222661803-a7537ca7-88ae-4e66-9bec-384f3e83e6bd.png"
+                     
+                >
+</li>
+<li><p>打開 MESSAGE CONTENT INTENT 並調至 <code>ON</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/205949323-4354bd7d-9bb9-4f4b-a87e-deb9933a89b5.png"
+                      alt="image"
+                ></p>
+</li>
+<li><p>通過 OAuth2 URL 生成器邀請你的機器人加入你的伺服器</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/205949600-0c7ddb40-7e8247a0-b59a-b089f929d177.png"
+                      alt="image"
+                ></p>
+</li>
+</ol>
+<h2 id="步驟2：官方-API-認證"><a href="#步驟2：官方-API-認證" class="headerlink" title="步驟2：官方 API 認證"></a>步驟2：官方 API 認證</h2><h3 id="生成一個-OpenAI-API-密鑰"><a href="#生成一個-OpenAI-API-密鑰" class="headerlink" title="生成一個 OpenAI API 密鑰"></a>生成一個 OpenAI API 密鑰</h3><ol>
+<li><p>前往 <a class="link"   target="_blank" rel="noopener" href="https://beta.openai.com/account/api-keys" >https://beta.openai.com/account/api-keys <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</li>
+<li><p>點擊 Create new secret key</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/207970699-2e0cb671-8636-4e27-b1f3-b75d6db9b57e.PNG"
+                      alt="image"
+                ></p>
+</li>
+<li><p>將 SECRET KEY 存儲到 <code>.env</code> 中的 <code>OPENAI_API_KEY</code></p>
+</li>
+<li><p>現在你已經準備好 <a href="#step-3-run-the-bot-on-the-desktop">步驟3</a> 了</p>
+</li>
+</ol>
+<h2 id="步驟2：Website-ChatGPT-認證-2-種方法"><a href="#步驟2：Website-ChatGPT-認證-2-種方法" class="headerlink" title="步驟2：Website ChatGPT 認證 - 2 種方法"></a>步驟2：Website ChatGPT 認證 - 2 種方法</h2><ul>
+<li>2023-04-01：現在只支持 Plus 帳戶</li>
+</ul>
+<h3 id="電子郵件-x2F-密碼認證（不支持-Google-x2F-Microsoft-帳戶）"><a href="#電子郵件-x2F-密碼認證（不支持-Google-x2F-Microsoft-帳戶）" class="headerlink" title="電子郵件&#x2F;密碼認證（不支持 Google&#x2F;Microsoft 帳戶）"></a>電子郵件&#x2F;密碼認證（不支持 Google&#x2F;Microsoft 帳戶）</h3><ol>
+<li><p>在 <a class="link"   target="_blank" rel="noopener" href="https://chat.openai.com/chat" >https://chat.openai.com/chat <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 上創建一個帳戶並打開它</p>
+</li>
+<li><p>使用 <code>F12</code> 打開控制台</p>
+</li>
+<li><p>打開 <code>Application</code> 標籤 &gt; Cookies</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png"
+                      alt="image"
+                ></p>
+</li>
+<li><p>從 cookies 中複製 <code>_puid</code> 的值並將其粘貼到 <code>.env</code> 下的 <code>PUID</code></p>
+</li>
+<li><p>將你的電子郵件保存到 <code>.env</code> 中的 <code>OPENAI_EMAIL</code></p>
+</li>
+<li><p>將你的密碼保存到 <code>.env</code> 中的 <code>OPENAI_PASSWORD</code></p>
+</li>
+<li><p>現在你已經準備好 <a href="#step-3-run-the-bot-on-the-desktop">步驟3</a> 了</p>
+</li>
+</ol>
+<h3 id="ACCESS-token-認證"><a href="#ACCESS-token-認證" class="headerlink" title="ACCESS token 認證"></a>ACCESS token 認證</h3><ol>
+<li><p>打開 <a class="link"   target="_blank" rel="noopener" href="https://chat.openai.com/api/auth/session" >https://chat.openai.com/api/auth/session <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</li>
+<li><p>使用 <code>F12</code> 打開控制台</p>
+</li>
+<li><p>打開 <code>Application</code> 標籤 &gt; Cookies</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png"
+                      alt="image"
+                ></p>
+</li>
+<li><p>從 cookies 中複製 <code>_puid</code> 的值並將其粘貼到 <code>.env</code> 下的 <code>PUID</code></p>
+</li>
+<li><p>從 cookies 中複製 <code>accessToken</code> 的值並將其粘貼到 <code>.env</code> 下的 <code>ACCESS_TOKEN</code></p>
+</li>
+<li><p>現在你已經準備好 <a href="#step-3-run-the-bot-on-the-desktop">步驟3</a> 了</p>
+</li>
+</ol>
+<h2 id="步驟2：Google-Bard-認證"><a href="#步驟2：Google-Bard-認證" class="headerlink" title="步驟2：Google Bard 認證"></a>步驟2：Google Bard 認證</h2><ol>
+<li><p>前往 <a class="link"   target="_blank" rel="noopener" href="https://bard.google.com/" >https://bard.google.com/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</li>
+<li><p>使用 <code>F12</code> 打開控制台</p>
+</li>
+<li><p>打開 <code>Application</code> 標籤 &gt; Cookies</p>
+</li>
+<li><p>從 cookies 中複製 <code>__Secure-1PSID</code> 的值並將其粘貼到 <code>.env</code> 下的 <code>BARD_SESSION_ID</code></p>
+</li>
+<li><p>現在你已經準備好 <a href="#step-3-run-the-bot-on-the-desktop">步驟3</a> 了</p>
+</li>
+</ol>
+<h2 id="步驟3：在桌面上運行機器人"><a href="#步驟3：在桌面上運行機器人" class="headerlink" title="步驟3：在桌面上運行機器人"></a>步驟3：在桌面上運行機器人</h2><ol>
+<li><p>打開終端或命令提示符</p>
+</li>
+<li><p>到你安裝 ChatGPT Discord 機器人的目錄</p>
+</li>
+<li><p>運行 <code>python3 main.py</code> 以啟動機器人</p>
+</li>
+</ol>
+<h2 id="步驟3：使用-Docker-運行機器人"><a href="#步驟3：使用-Docker-運行機器人" class="headerlink" title="步驟3：使用 Docker 運行機器人"></a>步驟3：使用 Docker 運行機器人</h2><ol>
+<li><p>使用 <code>docker compose up -d</code> 構建 Docker 映像並運行 Docker 容器</p>
+</li>
+<li><p>檢查機器人是否運行正常 <code>docker logs -t chatgpt-discord-bot</code></p>
+<h3 id="停止機器人："><a href="#停止機器人：" class="headerlink" title="停止機器人："></a>停止機器人：</h3><ul>
+<li>運行 <code>docker ps</code> 以查看運行中的服務列表</li>
+<li>運行 <code>docker stop &lt;BOT CONTAINER ID&gt;</code> 以停止運行的機器人</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>可以使用heroku來host機器人</p>
+</blockquote>
+<h3 id="聊天愉快！"><a href="#聊天愉快！" class="headerlink" title="聊天愉快！"></a>聊天愉快！</h3><h2 id="可選：禁用日誌記錄-logging"><a href="#可選：禁用日誌記錄-logging" class="headerlink" title="可選：禁用日誌記錄(logging)"></a>可選：禁用日誌記錄(logging)</h2><ul>
+<li>將 <code>.env</code> 中的 <code>LOGGING</code> 值設置為 False</li>
+</ul>
+<h2 id="可選：設置系統提示-system-prompt"><a href="#可選：設置系統提示-system-prompt" class="headerlink" title="可選：設置系統提示(system prompt)"></a>可選：設置系統提示(system prompt)</h2><ul>
+<li><p>系統提示將在機器人首次啟動或重置時調用</p>
+</li>
+<li><p>你可以通過修改 <code>system_prompt.txt</code> 中的內容來設置它</p>
+</li>
+<li><p>文件中的所有文字都將作為預設提示發送給機器人</p>
+</li>
+<li><p>在你的 discord 頻道中獲取 ChatGPT 的第一條消息！（不支援官方模型）</p>
+<ol>
+<li><p>右鍵單擊要接收消息的頻道，選擇 <code>Copy ID</code></p>
+<p>  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-images.githubusercontent.com/89479282/207697217-e03357b3-3b3d-44d0-b880-163217ed4a49.PNG"
+                      alt="channel-id"
+                ></p>
+</li>
+<li><p>將其粘貼到 <code>.env</code> 下的 <code>DISCORD_CHANNEL_ID</code></p>
+</li>
+</ol>
+</li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 建立自己的ChatGPT Discord機器人</li>
+        <li><strong>Author:</strong> Zero6992</li>
+        <li><strong>Created at:</strong> 2023-03-09 23:49:00</li>
+        
+            <li>
+                <strong>Updated at:</strong> 2023-04-06 09:04:21
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://zero6992.github.io/2023/03/09/chatGPT-discord-bot-chinese/
+        </li>
+        <li>
+            <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/ChatGPT-Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA/">#ChatGPT Discord 機器人</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/ChatGPT/">#ChatGPT</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA/">#Discord 機器人</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'en-US',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">建立自己的ChatGPT Discord機器人</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-text">功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%8A%E5%A4%A9"><span class="nav-text">聊天</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B9%AA%E5%9C%96"><span class="nav-text">繪圖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8F%9B%E8%A7%92%E8%89%B2"><span class="nav-text">切換角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F"><span class="nav-text">模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%AD%E7%BD%AE"><span class="nav-text">設置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E5%89%8D%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85"><span class="nav-text">安裝前注意事項</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F1%EF%BC%9A%E5%89%B5%E7%AB%8B%E4%B8%80%E5%80%8B-Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟1：創立一個 Discord 機器人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F2%EF%BC%9A%E5%AE%98%E6%96%B9-API-%E8%AA%8D%E8%AD%89"><span class="nav-text">步驟2：官方 API 認證</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E4%B8%80%E5%80%8B-OpenAI-API-%E5%AF%86%E9%91%B0"><span class="nav-text">生成一個 OpenAI API 密鑰</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F2%EF%BC%9AWebsite-ChatGPT-%E8%AA%8D%E8%AD%89-2-%E7%A8%AE%E6%96%B9%E6%B3%95"><span class="nav-text">步驟2：Website ChatGPT 認證 - 2 種方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%BB%E5%AD%90%E9%83%B5%E4%BB%B6-x2F-%E5%AF%86%E7%A2%BC%E8%AA%8D%E8%AD%89%EF%BC%88%E4%B8%8D%E6%94%AF%E6%8C%81-Google-x2F-Microsoft-%E5%B8%B3%E6%88%B6%EF%BC%89"><span class="nav-text">電子郵件&#x2F;密碼認證（不支持 Google&#x2F;Microsoft 帳戶）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ACCESS-token-%E8%AA%8D%E8%AD%89"><span class="nav-text">ACCESS token 認證</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F2%EF%BC%9AGoogle-Bard-%E8%AA%8D%E8%AD%89"><span class="nav-text">步驟2：Google Bard 認證</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F3%EF%BC%9A%E5%9C%A8%E6%A1%8C%E9%9D%A2%E4%B8%8A%E9%81%8B%E8%A1%8C%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟3：在桌面上運行機器人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F3%EF%BC%9A%E4%BD%BF%E7%94%A8-Docker-%E9%81%8B%E8%A1%8C%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟3：使用 Docker 運行機器人</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%9C%E6%AD%A2%E6%A9%9F%E5%99%A8%E4%BA%BA%EF%BC%9A"><span class="nav-text">停止機器人：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%8A%E5%A4%A9%E6%84%89%E5%BF%AB%EF%BC%81"><span class="nav-text">聊天愉快！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E9%81%B8%EF%BC%9A%E7%A6%81%E7%94%A8%E6%97%A5%E8%AA%8C%E8%A8%98%E9%8C%84-logging"><span class="nav-text">可選：禁用日誌記錄(logging)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E9%81%B8%EF%BC%9A%E8%A8%AD%E7%BD%AE%E7%B3%BB%E7%B5%B1%E6%8F%90%E7%A4%BA-system-prompt"><span class="nav-text">可選：設置系統提示(system prompt)</span></a></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Zero6992</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.0</a>
+        </div>
+        
+        
+        
+            <div id="start_div" style="display:none">
+                2023/04/01 04:20:00
+            </div>
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/layouts/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
