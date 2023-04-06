@@ -21,11 +21,11 @@ info:
 # IMAGE CONFIGURATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
 defaults:
   # Favicon
-  favicon: /images/zero.svg
+  favicon: https://user-images.githubusercontent.com/89479282/230352055-ece34273-ed70-4d18-97b5-eb57c3c94563.jpeg
   # Site logo
   logo:
   # Site avatar
-  avatar: /images/zero2.webp
+  avatar: https://user-images.githubusercontent.com/89479282/230348631-4222d9cc-3700-4b53-ac9c-500627e19569.jpeg
 # IMAGE CONFIGURATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
