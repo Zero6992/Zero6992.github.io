@@ -10,11 +10,160 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 
 ---
 
-> 2023-04-01 只有 Plus 帳戶可以使用非官方模型
->
-> 2023-03-27 現在支援 Bard 模型
+嗨! 這是一個讓你能夠在Discord架設你自己的 AI 機器人的教學文章(目前支援ChatGPT, Bing, Bard)，廢話不多說就進入正題了
 
-## 功能
+### 設置
+
+#### ⚠️ ⚠️ ⚠️ 安裝前請注意 ⚠️ ⚠️ ⚠️
+
+* 執行 ```git clone https://github.com/Zero6992/chatGPT-discord-bot.git``` 將專案 clone 下來
+
+* 執行 ```pip3 install -r requirements.txt``` 下載相依套件
+
+* **將資料夾中的檔案 `.env.dev` 重新命名為 `.env`**
+
+* 建議的 Python 版本 `3.9` ~ `3.11`
+#### 第一步：創立一個 Discord 機器人
+
+1. 前往 https://discord.com/developers/applications 創建一個 application
+2. 在該application下建立一個 Discord 機器人
+3. 從機器人設置中獲取token，如下圖
+
+   ![image](https://user-images.githubusercontent.com/89479282/205949161-4b508c6d-19a7-49b6-b8ed-7525ddbef430.png)
+4. 然後將token存儲到 `.env` 中的 `DISCORD_BOT_TOKEN`
+
+   <img height="190" width="390" alt="image" src="https://user-images.githubusercontent.com/89479282/222661803-a7537ca7-88ae-4e66-9bec-384f3e83e6bd.png">
+
+5. 打開 MESSAGE CONTENT INTENT 並調至 `ON`
+
+   ![image](https://user-images.githubusercontent.com/89479282/205949323-4354bd7d-9bb9-4f4b-a87e-deb9933a89b5.png)
+
+6. 通過 OAuth2 URL 生成器邀請你的機器人加入你的伺服器
+
+   ![image](https://user-images.githubusercontent.com/89479282/205949600-0c7ddb40-7e8247a0-b59a-b089f929d177.png)
+
+到這裡你就完成建立了你的Discord機器人，接下來我們要將Discord機器人連上AI，第二步有許多選項，你只需要完成一種就能使用其中一種model
+> 目前總共有支援以下模型
+>   * `OFFICIAL-GPT-3.5`: GPT-3.5 模型
+>   * `OFFICIAL-GPT-4.0`: GPT-4.0 模型（你的OpenAI帳號要可以調用 gpt-4 模型）
+>   * `Website ChatGPT-3.5`: 網站 ChatGPT-3.5 模型（非官方，反向ChatGPT網站的API，必須要是ChatGPT plus 帳號）
+>   * `Website ChatGPT-4.0`: 網站 ChatGPT-4.0 模型（非官方，反向ChatGPT網站的API，必須要是ChatGPT plus 帳號）
+>   * `Bard`: Google Bard 模型（免費）
+>   * `Bing`: Mircrosoft Bing 模型（免費）
+
+### 步驟二：官方 API 驗證
+
+#### 生成一個 OpenAI API 密鑰
+1. 進入 https://beta.openai.com/account/api-keys
+
+2. 點擊 Create new secret key
+
+   ![image](https://user-images.githubusercontent.com/89479282/207970699-2e0cb671-8636-4e27-b1f3-b75d6db9b57e.PNG)
+
+3. 將 SECRET KEY 存儲到 `.env` 中的 `OPENAI_API_KEY`
+
+4. 現在你就完成 OpenAI API 的密鑰驗證，可以使用 OFFICIAL-GPT-3.5 以及 OFFICIAL-GPT-4.0 了
+
+### 步驟二：Website ChatGPT 認證 - 2 種方法
+
+* 2023-04-01：現在只支持 Plus 帳戶
+
+#### 方法 1: 電子郵件/密碼認證（不支援 Google/Microsoft 帳戶）
+
+1. 在 https://chat.openai.com/chat 上創建一個帳戶並登入
+
+2. 使用 `F12` 打開控制台
+3. 打開 `Application` > Cookies
+
+   ![image](https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png)
+
+4. 從 cookies 中複製 `_puid` 並粘貼到 `.env` 下的 `PUID`
+
+5. 將你的電子郵件保存到 `.env` 中的 `OPENAI_EMAIL`
+
+6. 將你的密碼保存到 `.env` 中的 `OPENAI_PASSWORD`
+
+7. 完成Website ChatGPT驗證，你可以調用 Website ChatGPT-3.5 與 Website ChatGPT-4.0 了
+
+### 方法 2: ACCESS token 認證
+1. 打開 https://chat.openai.com/api/auth/session
+
+2. 使用 `F12` 打開控制台
+
+3. 打開 `Application` > Cookies
+
+   ![image](https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png)
+
+4. 從 cookies 中複製 `_puid` 粘貼到 `.env` 下的 `PUID`
+
+5. 從 cookies 中複製 `accessToken` 粘貼到 `.env` 下的 `ACCESS_TOKEN`
+
+7. 完成Website ChatGPT驗證，你可以調用 Website ChatGPT-3.5 與 Website ChatGPT-4.0 了
+
+### 步驟二：Google Bard 認證
+1. 前往 https://bard.google.com/
+
+2. 使用 `F12` 打開控制台
+
+3. 打開 `Application` > Cookies
+
+4. 從 cookies 中複製 `__Secure-1PSID` 粘貼到 `.env` 下的 `BARD_SESSION_ID`
+
+5. 完成Bard驗證，你可以調用 Bard 模型了
+
+### 步驟二：Microsoft Bing 驗證
+1. 將檔案 `cookies.dev.json` 重新命名為 `cookies.json`
+
+2. 前往 https://bing.com/chat 並使用 Microsoft 帳戶登入
+
+3. 使用 [Cookie Editor](https://chrome.google.com/webstore/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm) 或相似的擴充套件export cookies
+
+4. 在 cookies.json 中全選貼上
+
+5. 完成Bing驗證，你可以調用 Bing 模型了
+
+### 步驟三：在桌面上運行機器人
+
+1. 打開終端機或命令提示符
+
+2. 到你安裝此專案的目錄底下
+
+3. 運行 `python3 main.py` 或是 `python main.py` 以啟動機器人
+
+你成功在Discord架設你的AI機器人了 🚀🚀
+
+### 步驟三：使用 Docker 運行機器人
+
+1. 使用 `docker compose up -d` 構建 Docker 映像並運行 Docker 容器
+
+2. 檢查機器人是否運行正常 `docker logs -t chatgpt-discord-bot`
+
+   #### 停止機器人：
+
+   * 運行 `docker ps` 以查看運行中的服務列表
+   * 運行 `docker stop <BOT CONTAINER ID>` 以停止運行的機器人
+
+> 可以利用像heroku這類雲端供應商來host機器人
+
+#### 自訂義設置：取消日誌記錄(logging)
+
+* 將 `.env` 中的 `LOGGING` 值設為 False
+#### 自訂義設置：設置系統提示(system prompt)
+
+* 系統提示將在機器人首次啟動或重置時調用
+* 你可以通過修改 `system_prompt.txt` 中的內容來設置它 
+   * 例如：你可以寫入："請之後的回答都使用繁體中文" 以減少重複需要需要輸入的prompt
+* 文件中的所有文字都將作為預設提示發送給機器人
+* 在你的 discord 頻道中獲取 ChatGPT 的第一條消息！（不支援Official model）
+
+   1. 右鍵單擊要接收消息的頻道，選擇 `Copy ID`
+
+        ![channel-id](https://user-images.githubusercontent.com/89479282/207697217-e03357b3-3b3d-44d0-b880-163217ed4a49.PNG)
+
+   2. 粘貼到 `.env` 下的 `DISCORD_CHANNEL_ID`
+
+
+#### 現有功能
 
 * `/chat [訊息]` 和 ChatGPT 聊天！
 * `/draw [提示]` 用 Dalle2 模型生成圖像 (必須填入Openai API key)
@@ -38,163 +187,4 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
    * `Website ChatGPT-3.5`: 網站 ChatGPT-3.5 模型（非官方）
    * `Website ChatGPT-4.0`: 網站 ChatGPT-4.0 模型（非官方）（如果你有 Plus 帳戶的話可以用）
    * `Bard`: Google Bard 模型
-
-### 聊天
-
-![image](https://user-images.githubusercontent.com/89479282/206497774-47d960cd-1aeb-4fba-9af5-1f9d6ff41f00.gif)
-
-### 繪圖
-
-![image](https://user-images.githubusercontent.com/91911303/223772051-13f840d5-99ef-4762-98d2-d15ce23cbbd5.png)
-
-### 切換角色
-
-> **警告**
->
-> 使用某些角色可能會產生粗俗或令人不安的內容。請自行承擔風險。
-
-![image](https://user-images.githubusercontent.com/91911303/223772334-7aece61f-ead7-4119-bcd4-7274979c4702.png)
-
-### 模式
-
-* `public mode (default)` 機器人直接在頻道上回覆
-
-  ![image](https://user-images.githubusercontent.com/89479282/206565977-d7c5d405-fdb4-4202-bbdd-715b7c8e8415.gif)
-
-* `private mode` 只有使用命令的人才能看到機器人的回覆
-
-  ![image](https://user-images.githubusercontent.com/89479282/206565873-b181e600-e793-4a94-a978-47f806b986da.gif)
-
-* `replyall mode` 機器人將在不使用斜杠命令的情況下回覆頻道中的所有訊息（`/chat` 也將不可用）
-
-   > **警告**
-   > 在 `replyall` 模式下，機器人很容易被觸發，可能導致程序失敗
-
-# 設置
-
-## 安裝前注意事項
-
-* 執行 ```pip3 install -r requirements.txt```
-
-* **將文件 `.env.dev` 重命名為 `.env`**
-
-* 建議的 Python 版本 `3.10`
-## 步驟1：創立一個 Discord 機器人
-
-1. 前往 https://discord.com/developers/applications 創建一個應用程式
-2. 在該應用程式下建立一個 Discord 機器人
-3. 從機器人設置中獲取token
-
-   ![image](https://user-images.githubusercontent.com/89479282/205949161-4b508c6d-19a7-49b6-b8ed-7525ddbef430.png)
-4. 將token存儲到 `.env` 中的 `DISCORD_BOT_TOKEN`
-
-   <img height="190" width="390" alt="image" src="https://user-images.githubusercontent.com/89479282/222661803-a7537ca7-88ae-4e66-9bec-384f3e83e6bd.png">
-
-5. 打開 MESSAGE CONTENT INTENT 並調至 `ON`
-
-   ![image](https://user-images.githubusercontent.com/89479282/205949323-4354bd7d-9bb9-4f4b-a87e-deb9933a89b5.png)
-
-6. 通過 OAuth2 URL 生成器邀請你的機器人加入你的伺服器
-
-   ![image](https://user-images.githubusercontent.com/89479282/205949600-0c7ddb40-7e8247a0-b59a-b089f929d177.png)
-## 步驟2：官方 API 認證
-
-### 生成一個 OpenAI API 密鑰
-1. 前往 https://beta.openai.com/account/api-keys
-
-2. 點擊 Create new secret key
-
-   ![image](https://user-images.githubusercontent.com/89479282/207970699-2e0cb671-8636-4e27-b1f3-b75d6db9b57e.PNG)
-
-3. 將 SECRET KEY 存儲到 `.env` 中的 `OPENAI_API_KEY`
-
-4. 現在你已經準備好 [步驟3](#step-3-run-the-bot-on-the-desktop) 了
-
-## 步驟2：Website ChatGPT 認證 - 2 種方法
-
-* 2023-04-01：現在只支持 Plus 帳戶
-
-### 電子郵件/密碼認證（不支持 Google/Microsoft 帳戶）
-
-1. 在 https://chat.openai.com/chat 上創建一個帳戶並打開它
-
-2. 使用 `F12` 打開控制台
-3. 打開 `Application` 標籤 > Cookies
-
-   ![image](https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png)
-
-4. 從 cookies 中複製 `_puid` 的值並將其粘貼到 `.env` 下的 `PUID`
-
-5. 將你的電子郵件保存到 `.env` 中的 `OPENAI_EMAIL`
-
-6. 將你的密碼保存到 `.env` 中的 `OPENAI_PASSWORD`
-
-7. 現在你已經準備好 [步驟3](#step-3-run-the-bot-on-the-desktop) 了
-
-### ACCESS token 認證
-1. 打開 https://chat.openai.com/api/auth/session
-
-2. 使用 `F12` 打開控制台
-
-3. 打開 `Application` 標籤 > Cookies
-
-   ![image](https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png)
-
-4. 從 cookies 中複製 `_puid` 的值並將其粘貼到 `.env` 下的 `PUID`
-
-5. 從 cookies 中複製 `accessToken` 的值並將其粘貼到 `.env` 下的 `ACCESS_TOKEN`
-
-6. 現在你已經準備好 [步驟3](#step-3-run-the-bot-on-the-desktop) 了
-
-## 步驟2：Google Bard 認證
-1. 前往 https://bard.google.com/
-
-2. 使用 `F12` 打開控制台
-
-3. 打開 `Application` 標籤 > Cookies
-
-4. 從 cookies 中複製 `__Secure-1PSID` 的值並將其粘貼到 `.env` 下的 `BARD_SESSION_ID`
-
-5. 現在你已經準備好 [步驟3](#step-3-run-the-bot-on-the-desktop) 了
-
-## 步驟3：在桌面上運行機器人
-
-1. 打開終端或命令提示符
-
-2. 到你安裝 ChatGPT Discord 機器人的目錄
-
-3. 運行 `python3 main.py` 以啟動機器人
-
-## 步驟3：使用 Docker 運行機器人
-
-1. 使用 `docker compose up -d` 構建 Docker 映像並運行 Docker 容器
-
-2. 檢查機器人是否運行正常 `docker logs -t chatgpt-discord-bot`
-
-   ### 停止機器人：
-
-   * 運行 `docker ps` 以查看運行中的服務列表
-   * 運行 `docker stop <BOT CONTAINER ID>` 以停止運行的機器人
-
-> 可以使用heroku來host機器人
-
-### 聊天愉快！
-## 可選：禁用日誌記錄(logging)
-
-* 將 `.env` 中的 `LOGGING` 值設置為 False
-## 可選：設置系統提示(system prompt)
-
-* 系統提示將在機器人首次啟動或重置時調用
-* 你可以通過修改 `system_prompt.txt` 中的內容來設置它
-* 文件中的所有文字都將作為預設提示發送給機器人
-* 在你的 discord 頻道中獲取 ChatGPT 的第一條消息！（不支援官方模型）
-
-   1. 右鍵單擊要接收消息的頻道，選擇 `Copy ID`
-
-        ![channel-id](https://user-images.githubusercontent.com/89479282/207697217-e03357b3-3b3d-44d0-b880-163217ed4a49.PNG)
-
-   2. 將其粘貼到 `.env` 下的 `DISCORD_CHANNEL_ID`
-
-
-
-
+* `/help` 幫助
