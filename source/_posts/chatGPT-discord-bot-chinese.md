@@ -64,9 +64,11 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 
 4. 現在你就完成 OpenAI API 的密鑰驗證，可以使用 OFFICIAL-GPT-3.5 以及 OFFICIAL-GPT-4.0 了
 
+5. 如果你只需要使用 GPT 模型，可以直接前往步驟三
 ### 步驟二：Website ChatGPT 認證 - 2 種方法
 
-* 2023-04-01：現在只支持 Plus 帳戶
+> ⚠️ 注意 ⚠️
+> Website ChatGPT 目前只有支援 ChatGPT Plus 帳號
 
 #### 方法 1: 電子郵件/密碼認證（不支援 Google/Microsoft 帳戶）
 
@@ -85,6 +87,8 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 
 7. 完成Website ChatGPT驗證，你可以調用 Website ChatGPT-3.5 與 Website ChatGPT-4.0 了
 
+8. 如果你只需要使用 GPT 模型，可以直接前往步驟三
+
 ### 方法 2: ACCESS token 認證
 1. 打開 https://chat.openai.com/api/auth/session
 
@@ -100,6 +104,7 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 
 7. 完成Website ChatGPT驗證，你可以調用 Website ChatGPT-3.5 與 Website ChatGPT-4.0 了
 
+8. 如果你只需要使用 GPT 模型，可以直接前往步驟三
 ### 步驟二：Google Bard 認證
 1. 前往 https://bard.google.com/
 
@@ -111,6 +116,7 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 
 5. 完成Bard驗證，你可以調用 Bard 模型了
 
+6. 如果你只需要使用 Bard 模型，可以直接前往步驟三
 ### 步驟二：Microsoft Bing 驗證
 1. 將檔案 `cookies.dev.json` 重新命名為 `cookies.json`
 
