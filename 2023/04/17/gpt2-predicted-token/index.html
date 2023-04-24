@@ -21,7 +21,7 @@
     
         <meta name="description" content="GPT模型的秘密">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GPT模型是如何知道要輸出&#39;an&#39;而不是&#39;a&#39;?">
+<meta property="og:title" content="GPT 模型如何判斷該用 an 還是 a ?">
 <meta property="og:url" content="http://example.com/2023/04/17/gpt2-predicted-token/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="GPT模型的秘密">
@@ -45,8 +45,8 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/89479282/233319606-3e8f5dc0-43cf-47cb-aecd-33dd83d7334e.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/89479282/233319772-b1fafa3e-eb7f-4379-8abb-adcdd0065ada.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/89479282/233886186-94185a3f-d7da-4c88-8a87-bdb14572dfe9.png">
-<meta property="article:published_time" content="2023-04-17T08:19:00.000Z">
-<meta property="article:modified_time" content="2023-04-24T05:33:50.109Z">
+<meta property="article:published_time" content="2023-04-17T00:19:00.000Z">
+<meta property="article:modified_time" content="2023-04-24T08:06:23.191Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="ChatGPT">
 <meta property="article:tag" content="gpt">
@@ -56,13 +56,13 @@
     <!--- Icon Part-->
     <link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/89479282/230354320-72b60ed2-6abf-479a-8676-ac427c676503.png" sizes="192x192">
     <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/89479282/230354320-72b60ed2-6abf-479a-8676-ac427c676503.png">
-    <meta name="theme-color" content="#A31F34">
+    <meta name="theme-color" content="#30b067">
     <link rel="shortcut icon" href="https://user-images.githubusercontent.com/89479282/230354320-72b60ed2-6abf-479a-8676-ac427c676503.png">
     <!--- Page Info-->
     
     <title>
         
-            GPT模型是如何知道要輸出&#39;an&#39;而不是&#39;a&#39;? -
+            GPT 模型如何判斷該用 an 還是 a ? -
         
         Zero and One
     </title>
@@ -74,6 +74,10 @@
 
     <!--- Font Part-->
     
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;900&family=Noto+Serif+TC:wght@500&family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap" rel="stylesheet">
     
     
     
@@ -83,7 +87,7 @@
     <script id="hexo-configurations">
     let Global = window.Global || {};
     Global.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
-    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"recommendation","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":"Noto Serif","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;900&family=Noto+Serif+TC:wght@500&display=swap"},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Zero6992's site","subtitle":{"text":[],"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/Zero6992","instagram":null,"zhihu":null,"twitter":"https://twitter.com/ha1fu","email":"zero69992@gmail.com","linkedin":"https://www.linkedin.com/in/andy-fang-5793a1220/"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"audios":[{"name":null,"artist":null,"url":null,"cover":null},{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.8,"image_border_radius":"14px","image_alignment":"center"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":true,"family":"Noto Serif TC","url":"https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap"}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"recommendation","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#30b067","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1500px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"font":{"chinese":{"enable":true,"family":"Noto Serif TC","url":"https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap"},"english":{"enable":false,"family":null,"url":null}}},"home_banner":{"enable":true,"image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Zero6992","subtitle":{"text":["Hello, I‘m currently an undergraduate student based in Taiwan","你好! 我是來自台灣的大學生"],"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":true,"family":"Noto Serif TC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;900&family=Noto+Serif+TC:wght@500&family=Roboto+Mono:wght@600&display=swap"},"social_links":{"enable":true,"links":{"github":"https://github.com/Zero6992","instagram":null,"zhihu":null,"twitter":"https://twitter.com/ha1fu","email":"zero69992@gmail.com","linkedin":"https://www.linkedin.com/in/andy-fang-5793a1220/"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"audios":[{"name":null,"artist":null,"url":null,"cover":null},{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Github":{"path":"https://github.com/Zero6992","icon":"fa-brands fa-github"},"About":{"path":"/about","icon":"fa-regular fa-user"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
     Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
     
@@ -272,6 +276,38 @@ mjx-container[display="true"] + br {
                                 
                             </li>
                     
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    target="_blank" rel="noopener" href="https://github.com/Zero6992"  >
+                                    
+                                        
+                                            <i class="fa-brands fa-github"></i>
+                                        
+                                        GITHUB
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/about"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-user"></i>
+                                        
+                                        ABOUT
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
                     
                 </ul>
             </div>
@@ -304,6 +340,36 @@ mjx-container[display="true"] + br {
                     <!-- Submenu -->
                     
             
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        target="_blank" rel="noopener" href="https://github.com/Zero6992"  >
+                             
+                                
+                                    <i class="fa-brands fa-github"></i>
+                                
+                                GITHUB
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/about"  >
+                             
+                                
+                                    <i class="fa-regular fa-user"></i>
+                                
+                                ABOUT
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
 
         </ul>
     </div>
@@ -329,7 +395,7 @@ mjx-container[display="true"] + br {
             
             
                 <div class="article-title">
-                    <h1 class="article-title-regular">GPT模型是如何知道要輸出&#39;an&#39;而不是&#39;a&#39;?</h1>
+                    <h1 class="article-title-regular">GPT 模型如何判斷該用 an 還是 a ?</h1>
                 </div>
             
                 
@@ -351,15 +417,15 @@ mjx-container[display="true"] + br {
                             <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-04-17 08:19</span>
-        <span class="mobile">2023-04-17 08:19</span>
+        <span class="desktop">2023-04-17 00:19</span>
+        <span class="mobile">2023-04-17 00:19</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-04-24 05:33:50</span>
-            <span class="mobile">2023-04-24 05:33</span>
+            <span class="desktop">2023-04-24 08:06:23</span>
+            <span class="mobile">2023-04-24 08:06</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -395,18 +461,18 @@ mjx-container[display="true"] + br {
 
             <div class="article-content markdown-body">
                 <blockquote>
-<p>本文原文為 We Found An Neuron in GPT-2，作者為Clement Neo，是一位倫敦的大學生，這篇文章是他在黑客松中題目的延伸，2月初看到就覺得這篇文章很有趣，可以翻譯一下，結果拖到現在，這篇文章像偵探一樣一步一步的找尋LLM處理特定token的神經元，以及如何判斷該神經元是否就是預測該 token 的神經元。本文透過AI翻譯後，再做修改</p>
+<p>本文譯自 <a class="link" target="_blank" rel="noopener" href="https://clementneo.com/posts/2023/02/11/we-found-an-neuron">We Found An Neuron in GPT-2 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，作者為Clement Neo，是一位倫敦的大學生，這篇文章是他在黑客松中題目的延伸，2月初看到就覺得這篇文章很有趣，可以翻譯一下，結果拖到現在，這篇文章像偵探一樣一步一步的找尋LLM處理特定token的神經元，以及如何判斷該神經元是否就是預測該 token 的神經元。本文透過AI翻譯後，再做修改</p>
 </blockquote>
-<h2 id="我們在-GPT-2-中找到了’an’神經元"><a href="#我們在-GPT-2-中找到了’an’神經元" class="headerlink" title="我們在 GPT-2 中找到了’an’神經元"></a>我們在 GPT-2 中找到了’an’神經元</h2><p><code>作者：Joseph Miller、Clement Neo</code></p>
-<p>這個研究始於一個問題：GPT-2 是如何知道何時該使用 “an” 而不是 “a” 的？以人類來說，這個選擇取決於後面的單詞是否以母音為開頭，但 GPT-2 一次只能輸出一個單詞（準確來說，1個 token），他是如何判斷的？</p>
-<p>雖然我們還沒有完整的答案，但我們確實在 GPT-2 Large 模型中找到了一個對於 gpt 預測 “an” 這個 token 至關重要的單個 MLP 神經元。同時，我們也發現這個神經元的權重與 “an” token 的嵌入相對應，這讓我們找到了其他也能預測特定 token 的神經元。</p>
-<h3 id="發現神經元"><a href="#發現神經元" class="headerlink" title="發現神經元"></a>發現神經元</h3><h5 id="選擇提示詞-prompt"><a href="#選擇提示詞-prompt" class="headerlink" title="選擇提示詞(prompt)"></a>選擇提示詞(prompt)</h5><p>想出一個能讓 GPT-2 輸出 “ an”（前面的空格是token的一部分）作為最佳預測的提示是非常困難。我們實驗後最後放棄了 GPT-2_small 模型，轉向 GPT-2_large。稍後我們將會看到，即使是 GPT-2_large 也會系統性地低估 “ an” 這個 token。這可能是因為較小的語言模型依賴於 “ a” 的頻率更高，更有可能做出最佳猜測。我們最終找到的能讓 “ an” 的概率達到 64% 的提示是：</p>
+<h2 id="我們在-GPT-2-中找到了”an”神經元"><a href="#我們在-GPT-2-中找到了”an”神經元" class="headerlink" title="我們在 GPT-2 中找到了”an”神經元"></a>我們在 GPT-2 中找到了”an”神經元</h2><p><code>作者：Joseph Miller、Clement Neo</code></p>
+<p>這個研究始於一個問題：<em><strong>GPT-2 是如何知道何時該使用 “an” 而不是 “a” ？</strong></em>以人類來說，這個選擇取決於後面的單詞是否以母音為開頭，但 GPT-2 一次只能輸出一個單詞（準確來說，1個 token），他是如何判斷的？</p>
+<p>雖然我們還沒有完整的答案，但我們確實在 GPT-2 Large 模型中找到了一個對於 gpt 預測 “ an” 這個 token 至關重要的單個 MLP 神經元。同時，我們也發現這個神經元的權重與 “ an” token 的嵌入相對應，這讓我們能夠以相同方法找到其他也能預測特定 token 的神經元。</p>
+<h3 id="發現神經元"><a href="#發現神經元" class="headerlink" title="發現神經元"></a>發現神經元</h3><h5 id="選擇提示詞-prompt"><a href="#選擇提示詞-prompt" class="headerlink" title="選擇提示詞(prompt)"></a>選擇提示詞(prompt)</h5><p>想出一個能讓 GPT-2 輸出 “ an”（前面的空格是token的一部分）作為最佳預測的提示(prompt)是非常困難。我們實驗後最後放棄了 GPT-2_small 模型，轉向 GPT-2_large。稍後我們將會看到，即使是 GPT-2_large 也會系統性地低估 “ an” 這個 token。這可能是因為較小的語言模型依賴於 “ a” 的頻率更高，更有可能做出最佳猜測。我們最終找到的能讓 “ an” 的機率達到 64% 的提示是：</p>
 <blockquote>
 <p>“I climbed up the pear tree and picked a pear. I climbed up the <code>apple</code> tree and picked”</p>
 </blockquote>
-<p>第一句是必要的，因為它可以讓模型朝著不定冠詞的方向前進，如果沒有第一句，模型會做出其他預測，例如: “[picked] up”</p>
+<p>第一句是必要的，因為它可以讓模型朝著不定冠詞的預測方向前進，如果沒有第一句，模型會做出其他預測，例如: “[picked] up”</p>
 <p>在繼續之前，讓我們快速回顧一下 <a class="link" target="_blank" rel="noopener" href="https://transformer-circuits.pub/2021/framework/index.html">Transformer 架構 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 。每個注意力區塊和 MLP 都會將輸入加到殘差流(residual stream)中。<br>   <img lazyload="" src="/images/loading.svg" data-src="https://user-images.githubusercontent.com/89479282/232722119-09e06fca-baab-48e6-b887-4ca3c91cdd48.png" alt="image"></p>
-<h4 id="Logit-透鏡-Logit-Lens"><a href="#Logit-透鏡-Logit-Lens" class="headerlink" title="Logit 透鏡(Logit Lens)"></a>Logit 透鏡(Logit Lens)</h4><p>使用 <a class="link" target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens">logit 透鏡 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 這種技巧，我們在模型的每層之間從殘差流中取出 logit，並繪製 logit(‘ an’) 和 logit(‘ a’) 之間的差異。我們在第 31 層的 MLP 之後發現了一個大的峰值，如下圖。</p>
+<h4 id="Logit-透鏡-Logit-Lens"><a href="#Logit-透鏡-Logit-Lens" class="headerlink" title="Logit 透鏡(Logit Lens)"></a>Logit 透鏡(Logit Lens)</h4><p>使用 <a class="link" target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens">logit 透鏡 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 這種技巧，我們在模型的每層之間從殘差流中取出 logit，並繪製 logit(“ an”) 和 logit(“ a”) 之間的差異。我們在第 31 層的 MLP 之後發現了一個大的峰值，如下圖。</p>
 <p>   <img lazyload="" src="/images/loading.svg" data-src="https://user-images.githubusercontent.com/89479282/232725226-748c4121-8afe-49bf-8e03-49cd58f9d083.png" alt="image"></p>
 <h4 id="層次激發修補-Activation-Patching-by-the-Layer"><a href="#層次激發修補-Activation-Patching-by-the-Layer" class="headerlink" title="層次激發修補(Activation Patching by the Layer)"></a>層次激發修補(Activation Patching by the Layer)</h4><p>激發修補是一種由 <a class="link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2202.05262">Meng 等人 (2022) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 提出的技術，用於分析 Transformer 中單層的重要性。在這個技術中，我們會先將一開始提到的提示運行於模型時，然後我們會將每一層的激發保存起來又稱“淨激發(clean activation)”。</p>
 <p>接著，我們將提示詞中蘋果樹(apple tree)改成檸檬樹(lemon tree)並丟給模型：</p>
@@ -429,7 +495,7 @@ mjx-container[display="true"] + br {
 <p>我們以與上述提到的分層修補中類似的方法對第 31 層 MLP 的神經元進行神經元級別的激發修補(activation patching)。當我們將被修改過的提示運行於模型時，在 MLP 中重新引入每個神經元的淨激發(clean activation)，並觀察恢復每個神經元對 “ a” 和 “ an” 之間 logit 差異的貢獻。</p>
 <p><img lazyload="" src="/images/loading.svg" data-src="https://user-images.githubusercontent.com/89479282/233306391-41c0f3f6-7dec-4b63-b9f7-48fb11d7c492.png" alt="image"></p>
 <p>我們可以發現修補神經元 892 可以恢復最初提示中 50% 的 logit 差異，而修補整個層實際上只恢復了 49% 的表現上更差。</p>
-<p>總之，我們在 GPT-2 Large 中找到了一個對預測 “ an” 詞幣至關重要的單個 MLP 神經元。通過啟動修補技術，我們可以繼續研究變換器中單個神經元的重要性，進一步了解它們在預測特定詞幣方面的作用。雖然我們尚未完全解答開篇提出的問題，但這些發現將有助於我們更深入地理解語言模型的運作機制。</p>
+<p>總之，我們在 GPT-2 Large 中找到了一個對預測 “ an” token 至關重要的單個 MLP 神經元。通過啟動修補技術，我們可以繼續研究變換器中單個神經元的重要性，進一步了解它們在預測特定 token 方面的作用。雖然我們尚未完全解答開篇提出的問題，但這些發現將有助於我們更深入地理解語言模型的運作機制。</p>
 <h3 id="發現二：「an-神經元」的激發與「an」token-預測相關性"><a href="#發現二：「an-神經元」的激發與「an」token-預測相關性" class="headerlink" title="發現二：「an-神經元」的激發與「an」token 預測相關性"></a>發現二：「an-神經元」的激發與「an」token 預測相關性</h3><h4 id="Neuroscope-第31層的892號神經元最大激發案例"><a href="#Neuroscope-第31層的892號神經元最大激發案例" class="headerlink" title="Neuroscope 第31層的892號神經元最大激發案例"></a>Neuroscope <a class="link" target="_blank" rel="noopener" href="https://neuroscope.io/gpt2-large/31/892.html">第31層的892號神經元 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>最大激發案例</h4><p><img lazyload="" src="/images/loading.svg" data-src="https://user-images.githubusercontent.com/89479282/233309645-a7705dd3-c1c6-449d-a39c-0690357067b6.png" alt="image"><br>Neuroscope 是用來查看 GPT-2 中每個神經元在大型資料集中最大激發案例的線上工具。當我們觀察第31層，編號892神經元時，我們發現這個神經元在後續 token 是「an」的情況下達到最大的激發(maximally activates)。</p>
 <p>但 Neuroscope 只顯示出最高激發的前 20 個範例。我們想知道的是在更廣泛的激發範圍內，神經元與 token 是否存在相關性？</p>
 <h4 id="在更大的數據集上測試神經元"><a href="#在更大的數據集上測試神經元" class="headerlink" title="在更大的數據集上測試神經元"></a>在更大的數據集上測試神經元</h4><p>為了確認這一點，我們將 pile-10k 資料集運行在模型中。這是一個多樣化的資料集，包含了大約 1000 萬個來自 The Pile 的標記，分成 1024 個標記的提示。我們繪製了神經元激活範圍內「an」預測的比例：</p>
@@ -488,16 +554,16 @@ mjx-container[display="true"] + br {
 <p>重現我們結果的程式碼：<a class="link" target="_blank" rel="noopener" href="https://github.com/UFO-101/an-neuron">https://github.com/UFO-101/an-neuron <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>這是我們在<a class="link" target="_blank" rel="noopener" href="https://apartresearch.com/">Apart Research <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>的<a class="link" target="_blank" rel="noopener" href="https://itch.io/jam/mechint">黑客松 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>中獲勝所提交的文章做的延伸。感謝倫敦<a class="link" target="_blank" rel="noopener" href="https://krischari.notion.site/Our-Coworking-Space-daff577809a84832a0d8bb28940c78c0">EA Hub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>讓我們使用他們的共享工作空間，感謝<a class="link" target="_blank" rel="noopener" href="https://fbarez.github.io/">Fazl Barez的評論 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>和 <a class="link" target="_blank" rel="noopener" href="https://www.neelnanda.io/">Neel Nanda的建議 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，以及 <a class="link" target="_blank" rel="noopener" href="https://neuroscope.io/">Neuroscope <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>、<a class="link" target="_blank" rel="noopener" href="https://huggingface.co/datasets/NeelNanda/pile-10k">pile-10k資料集 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>和<a class="link" target="_blank" rel="noopener" href="https://github.com/neelnanda-io/TransformerLens">TransformerLens <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</p>
 <hr>
-<div class="note-large notel-default"><div class="notel-title"><p>信息</p>
-</div><div class="notel-content"><p>[註1]<br>Neel Nanda 對 MLP 第0層的看法：<br>“通常在GPT-2 Small上觀察到，MLP 第0層非常重要，抑制它會徹底破壞LLM的性能。我目前最好的猜測是，第一個MLP層基本上是 prompt 嵌入的擴展（無論出於什麼原因），當後續層想要訪問輸入 token 時，它們主要讀取的是第一個 ML 層的輸出，而不是 prompt。在這個框架下，第一個注意力層幾乎沒有什麼作用。<br>在這個框架下，MLP 第0層在第二個主題 token 上很重要，因為這是唯一一個位置有不同的輸入 token！<br>我不完全確定為什麼會這樣，但我的猜測是，這是因為在GPT-2 Small中，嵌入和去嵌入矩陣是相同的。這是相當不合理的，因為嵌入和去嵌入token的任務並不是互逆的，但這是常見的做法，模型可能希望將一些參數用於克服這一點。<br>我只有暗示性的證據，希望有人能夠好好研究這個問題”</p>
-<p>[註2]<br>神經元還有哪些可能的作用？它可能抑制了” a”的 logit，這對 logit 差異會產生相同的影響。或者它可能向殘差流中添加了完全不同的方向，導致後續層的神經元增加了” an” logit。</p>
-<p>[註3]<br>值得注意的是，” though”神經元與一組語義相似的token一致，而” an”神經元與一組語法相似的token相關（例如，” an”和” Ancients”）。</p>
-<p>[註4]<br>為什麼” an”具有更乾淨的相關性，儘管有其他一致的token(“an”, “An”, “ An”)？我們不能確定。一個可能的解釋是，”An”和” An”只是非常不常見的 token，所以它們對對相關性的影響很小，而”an”與此神經元的一致性遠低於其他三者。</p>
+<div class="note-large notel-default"><div class="notel-title"><p>註解</p>
+</div><div class="notel-content"><h5 id="註1"><a href="#註1" class="headerlink" title="[註1]"></a>[註1]</h5><p>Neel Nanda 對 MLP 第0層的看法：<br>“通常在GPT-2 Small上觀察到，MLP 第0層非常重要，抑制它會徹底破壞LLM的性能。我目前最好的猜測是，第一個MLP層基本上是 prompt 嵌入的擴展（無論出於什麼原因），當後續層想要訪問輸入 token 時，它們主要讀取的是第一個 ML 層的輸出，而不是 prompt。在這個框架下，第一個注意力層幾乎沒有什麼作用。<br>在這個框架下，MLP 第0層在第二個主題 token 上很重要，因為這是唯一一個位置有不同的輸入 token！<br>我不完全確定為什麼會這樣，但我的猜測是，這是因為在GPT-2 Small中，嵌入和去嵌入矩陣是相同的。這是相當不合理的，因為嵌入和去嵌入token的任務並不是互逆的，但這是常見的做法，模型可能希望將一些參數用於克服這一點。<br>我只有暗示性的證據，希望有人能夠好好研究這個問題”</p>
+<h5 id="註2"><a href="#註2" class="headerlink" title="[註2]"></a>[註2]</h5><p>神經元還有哪些可能的作用？它可能抑制了” a”的 logit，這對 logit 差異會產生相同的影響。或者它可能向殘差流中添加了完全不同的方向，導致後續層的神經元增加了” an” logit。</p>
+<h5 id="註3"><a href="#註3" class="headerlink" title="[註3]"></a>[註3]</h5><p>值得注意的是，” though”神經元與一組語義相似的token一致，而” an”神經元與一組語法相似的token相關（例如，” an”和” Ancients”）。</p>
+<h5 id="註4"><a href="#註4" class="headerlink" title="[註4]"></a>[註4]</h5><p>為什麼” an”具有更乾淨的相關性，儘管有其他一致的token(“an”, “An”, “ An”)？我們不能確定。一個可能的解釋是，”An”和” An”只是非常不常見的 token，所以它們對對相關性的影響很小，而”an”與此神經元的一致性遠低於其他三者。</p>
 <p>一般來說，我們只查看每個token的前2名神經元差異來找到的神經元，通常不會與其相對應的token具有乾淨的相關性，因為這些神經元可能同時與多個token有一致關係。</p>
-<p>[註5]<br>當我們觀察每個token的最一致神經元時，我們可以看到了一些非常高一致性的熟悉的<a class="link" target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation">麻煩製造者 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：</p>
+<h5 id="註5"><a href="#註5" class="headerlink" title="[註5]"></a>[註5]</h5><p>當我們觀察每個token的最一致神經元時，我們可以看到了一些非常高一致性的熟悉的<a class="link" target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation">麻煩製造者 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>：</p>
 <p><img lazyload="" src="/images/loading.svg" data-src="https://user-images.githubusercontent.com/89479282/233886186-94185a3f-d7da-4c88-8a87-bdb14572dfe9.png" alt="image"></p>
-<p>起初，看起來這些’禁止的token’都與一個’禁止的神經元’（第35層神經元3354）相關，它們都與該神經元非常一致。但實際上，如果我們繪製許多其他神經元的最一致token，我們也會看到一些這樣的奇怪token位於排名靠前的位置。我們的初步假設是，這可能與<a class="link" target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/Ya9LzwEbfaAMY8ABo/?commentId=M2uAwsCus2adqQsGc">hubness effect(集束效應) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>有關。</p>
-<p>[註6]<br>Neuroscope 數據對於這個神經元並不可用，所以我們從 pile-10k 資料集中選擇了最大激發數據集案例。文本1、2、3分別是提示1755、8528和6375。</p>
+<p>起初，看起來這些”禁止的token”都與一個”禁止的神經元”（第35層神經元3354）相關，它們都與該神經元非常一致。但實際上，如果我們繪製許多其他神經元的最一致token，我們也會看到一些這樣的奇怪token位於排名靠前的位置。我們的初步假設是，這可能與<a class="link" target="_blank" rel="noopener" href="https://www.lesswrong.com/posts/Ya9LzwEbfaAMY8ABo/?commentId=M2uAwsCus2adqQsGc">hubness effect(集束效應) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>有關。</p>
+<h5 id="註6"><a href="#註6" class="headerlink" title="[註6]"></a>[註6]</h5><p>Neuroscope 數據對於這個神經元並不可用，所以我們從 pile-10k 資料集中選擇了最大激發數據集案例。文本1、2、3分別是提示1755、8528和6375。</p>
 <p>[註7]<br>值得注意的是，前5個token之一是”an”，但這與我們之前提到的” an”不同，它很少作為一個單詞的開頭或單獨使用的單詞。同樣，與之配對的神經元，第34層神經元4549，也不是前面提到的” an”神經元。</p>
  </div></div>
 
@@ -508,12 +574,12 @@ mjx-container[display="true"] + br {
                 <div class="post-copyright-info">
                     <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> GPT模型是如何知道要輸出&#39;an&#39;而不是&#39;a&#39;?</li>
+        <li><strong>Title:</strong> GPT 模型如何判斷該用 an 還是 a ?</li>
         <li><strong>Author:</strong> Zero6992</li>
-        <li><strong>Created at:</strong> 2023-04-17 08:19:00</li>
+        <li><strong>Created at:</strong> 2023-04-17 00:19:00</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-04-24 05:33:50
+                <strong>Updated at:</strong> 2023-04-24 08:06:23
             </li>
         
         <li>
@@ -551,7 +617,7 @@ mjx-container[display="true"] + br {
                         <div class="article-next">
                             <a class="next"
                             rel="next"
-                            href="/2023/03/10/chatGPT-discord-bot-chinese/"
+                            href="/2023/03/09/chatGPT-discord-bot-chinese/"
                             >
                                 <span class="title flex-center">
                                     <span class="post-nav-title-item">建立自己的ChatGPT Discord機器人</span>
@@ -619,8 +685,8 @@ mjx-container[display="true"] + br {
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">GPT模型是如何知道要輸出&#39;an&#39;而不是&#39;a&#39;?</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E5%80%91%E5%9C%A8-GPT-2-%E4%B8%AD%E6%89%BE%E5%88%B0%E4%BA%86%E2%80%99an%E2%80%99%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">我們在 GPT-2 中找到了’an’神經元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">發現神經元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E4%B8%80%EF%BC%9A-%E6%88%91%E5%80%91%E5%8F%AF%E4%BB%A5%E9%80%9A%E9%81%8E%E5%B0%8D%E5%96%AE%E5%80%8B%E7%A5%9E%E7%B6%93%E5%85%83%E9%80%B2%E8%A1%8C%E6%BF%80%E7%99%BC%E4%BF%AE%E8%A3%9C-activation-patching-%E4%BE%86%E7%99%BC%E7%8F%BE%E5%85%B7%E6%9C%89%E9%A0%90%E6%B8%AC%E6%80%A7%E7%9A%84%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">發現一： 我們可以通過對單個神經元進行激發修補(activation patching)來發現具有預測性的神經元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E4%BA%8C%EF%BC%9A%E3%80%8Can-%E7%A5%9E%E7%B6%93%E5%85%83%E3%80%8D%E7%9A%84%E6%BF%80%E7%99%BC%E8%88%87%E3%80%8Can%E3%80%8Dtoken-%E9%A0%90%E6%B8%AC%E7%9B%B8%E9%97%9C%E6%80%A7"><span class="nav-text">發現二：「an-神經元」的激發與「an」token 預測相關性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E4%B8%89%EF%BC%9A%E6%88%91%E5%80%91%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E7%A5%9E%E7%B6%93%E5%85%83%E7%9A%84%E8%BC%B8%E5%87%BA%E4%B8%80%E8%87%B4%E6%80%A7%E4%BE%86%E6%89%BE%E5%88%B0%E9%A0%90%E6%B8%AC-token-%E7%9A%84%E7%89%B9%E5%AE%9A%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">發現三：我們可以使用神經元的輸出一致性來找到預測 token 的特定神經元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%99%E4%B8%80%E5%88%87%E6%84%8F%E5%91%B3%E8%91%97%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">這一切意味著什麼？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TL-DR"><span class="nav-text">TL; DR</span></a></li></ol></li></ol>
+        <div class="page-title">GPT 模型如何判斷該用 an 還是 a ?</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E5%80%91%E5%9C%A8-GPT-2-%E4%B8%AD%E6%89%BE%E5%88%B0%E4%BA%86%E2%80%9Dan%E2%80%9D%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">我們在 GPT-2 中找到了”an”神經元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">發現神經元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E4%B8%80%EF%BC%9A-%E6%88%91%E5%80%91%E5%8F%AF%E4%BB%A5%E9%80%9A%E9%81%8E%E5%B0%8D%E5%96%AE%E5%80%8B%E7%A5%9E%E7%B6%93%E5%85%83%E9%80%B2%E8%A1%8C%E6%BF%80%E7%99%BC%E4%BF%AE%E8%A3%9C-activation-patching-%E4%BE%86%E7%99%BC%E7%8F%BE%E5%85%B7%E6%9C%89%E9%A0%90%E6%B8%AC%E6%80%A7%E7%9A%84%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">發現一： 我們可以通過對單個神經元進行激發修補(activation patching)來發現具有預測性的神經元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E4%BA%8C%EF%BC%9A%E3%80%8Can-%E7%A5%9E%E7%B6%93%E5%85%83%E3%80%8D%E7%9A%84%E6%BF%80%E7%99%BC%E8%88%87%E3%80%8Can%E3%80%8Dtoken-%E9%A0%90%E6%B8%AC%E7%9B%B8%E9%97%9C%E6%80%A7"><span class="nav-text">發現二：「an-神經元」的激發與「an」token 預測相關性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E4%B8%89%EF%BC%9A%E6%88%91%E5%80%91%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E7%A5%9E%E7%B6%93%E5%85%83%E7%9A%84%E8%BC%B8%E5%87%BA%E4%B8%80%E8%87%B4%E6%80%A7%E4%BE%86%E6%89%BE%E5%88%B0%E9%A0%90%E6%B8%AC-token-%E7%9A%84%E7%89%B9%E5%AE%9A%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">發現三：我們可以使用神經元的輸出一致性來找到預測 token 的特定神經元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%99%E4%B8%80%E5%88%87%E6%84%8F%E5%91%B3%E8%91%97%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">這一切意味著什麼？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TL-DR"><span class="nav-text">TL; DR</span></a></li></ol></li></ol>
 
     </div>
 </div>
@@ -647,7 +713,7 @@ mjx-container[display="true"] + br {
               <span>2023</span>
               -
             
-            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Zero6992</a>
+            2023&nbsp;&nbsp;<i class="fa-regular fa-computer-classic"></i>&nbsp;&nbsp;<a href="/">Zero6992</a>
         </div>
         
             <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
