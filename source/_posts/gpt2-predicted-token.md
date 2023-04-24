@@ -14,7 +14,7 @@ mathjax: true
 
 這個研究始於一個問題：GPT-2 是如何知道何時該使用 "an" 而不是 "a" 的？以人類來說，這個選擇取決於後面的單詞是否以母音為開頭，但 GPT-2 一次只能輸出一個單詞（準確來說，1個 token），他是如何判斷的？
 
-雖然我們還沒有完整的答案，但我們確實在 GPT-2 Large 模型中找到了一個對於 gpt 預測 "an" 這個 token 至關重要的單個 MLP 神經元。同時，我們也發現這個神經元的權重與 "an" token 的嵌入相對應，這讓我們找到了其他也能預測特定 token 的神經元。
+雖然我們還沒有完整的答案，但我們確實在 GPT-2 Large 模型中找到了一個對於 gpt 預測 " an" 這個 token 至關重要的單個 MLP 神經元。同時，我們也發現這個神經元的權重與 " an" token 的嵌入相對應，這讓我們找到了其他也能預測特定 token 的神經元。
 
 ### 發現神經元
 
@@ -75,7 +75,7 @@ $$
 我們可以發現修補神經元 892 可以恢復最初提示中 50% 的 logit 差異，而修補整個層實際上只恢復了 49% 的表現上更差。
 
 
-總之，我們在 GPT-2 Large 中找到了一個對預測 " an" 詞幣至關重要的單個 MLP 神經元。通過啟動修補技術，我們可以繼續研究變換器中單個神經元的重要性，進一步了解它們在預測特定詞幣方面的作用。雖然我們尚未完全解答開篇提出的問題，但這些發現將有助於我們更深入地理解語言模型的運作機制。
+總之，我們在 GPT-2 Large 中找到了一個對預測 " an" token 至關重要的單個 MLP 神經元。通過啟動修補技術，我們可以繼續研究變換器中單個神經元的重要性，進一步了解它們在預測特定 token 方面的作用。雖然我們尚未完全解答開篇提出的問題，但這些發現將有助於我們更深入地理解語言模型的運作機制。
 
 ### 發現二：「an-神經元」的激發與「an」token 預測相關性
 
@@ -185,33 +185,33 @@ Neuroscope 是用來查看 GPT-2 中每個神經元在大型資料集中最大�
 這是我們在[Apart Research](https://apartresearch.com/)的[黑客松](https://itch.io/jam/mechint)中獲勝所提交的文章做的延伸。感謝倫敦[EA Hub](https://krischari.notion.site/Our-Coworking-Space-daff577809a84832a0d8bb28940c78c0)讓我們使用他們的共享工作空間，感謝[Fazl Barez的評論](https://fbarez.github.io/)和 [Neel Nanda的建議](https://www.neelnanda.io/)，以及 [Neuroscope](https://neuroscope.io/)、[pile-10k資料集](https://huggingface.co/datasets/NeelNanda/pile-10k)和[TransformerLens](https://github.com/neelnanda-io/TransformerLens)。
 
 ------
-{% notel default 信息 %}
-[註1]
+{% notel default 註解 %}
+##### [註1]
 Neel Nanda 對 MLP 第0層的看法：
 "通常在GPT-2 Small上觀察到，MLP 第0層非常重要，抑制它會徹底破壞LLM的性能。我目前最好的猜測是，第一個MLP層基本上是 prompt 嵌入的擴展（無論出於什麼原因），當後續層想要訪問輸入 token 時，它們主要讀取的是第一個 ML 層的輸出，而不是 prompt。在這個框架下，第一個注意力層幾乎沒有什麼作用。
 在這個框架下，MLP 第0層在第二個主題 token 上很重要，因為這是唯一一個位置有不同的輸入 token！
 我不完全確定為什麼會這樣，但我的猜測是，這是因為在GPT-2 Small中，嵌入和去嵌入矩陣是相同的。這是相當不合理的，因為嵌入和去嵌入token的任務並不是互逆的，但這是常見的做法，模型可能希望將一些參數用於克服這一點。
 我只有暗示性的證據，希望有人能夠好好研究這個問題"
 
-[註2]
+##### [註2]
 神經元還有哪些可能的作用？它可能抑制了" a"的 logit，這對 logit 差異會產生相同的影響。或者它可能向殘差流中添加了完全不同的方向，導致後續層的神經元增加了" an" logit。
 
-[註3]
+##### [註3]
 值得注意的是，" though"神經元與一組語義相似的token一致，而" an"神經元與一組語法相似的token相關（例如，" an"和" Ancients"）。
 
-[註4]
+##### [註4]
 為什麼" an"具有更乾淨的相關性，儘管有其他一致的token("an", "An", " An")？我們不能確定。一個可能的解釋是，"An"和" An"只是非常不常見的 token，所以它們對對相關性的影響很小，而"an"與此神經元的一致性遠低於其他三者。
 
 一般來說，我們只查看每個token的前2名神經元差異來找到的神經元，通常不會與其相對應的token具有乾淨的相關性，因為這些神經元可能同時與多個token有一致關係。
 
-[註5]
+##### [註5]
 當我們觀察每個token的最一致神經元時，我們可以看到了一些非常高一致性的熟悉的[麻煩製造者](https://www.lesswrong.com/posts/aPeJE8bSo6rAFoLqg/solidgoldmagikarp-plus-prompt-generation)：
 
 ![image](https://user-images.githubusercontent.com/89479282/233886186-94185a3f-d7da-4c88-8a87-bdb14572dfe9.png)
 
 起初，看起來這些'禁止的token'都與一個'禁止的神經元'（第35層神經元3354）相關，它們都與該神經元非常一致。但實際上，如果我們繪製許多其他神經元的最一致token，我們也會看到一些這樣的奇怪token位於排名靠前的位置。我們的初步假設是，這可能與[hubness effect(集束效應)](https://www.lesswrong.com/posts/Ya9LzwEbfaAMY8ABo/?commentId=M2uAwsCus2adqQsGc)有關。
 
-[註6]
+##### [註6]
 Neuroscope 數據對於這個神經元並不可用，所以我們從 pile-10k 資料集中選擇了最大激發數據集案例。文本1、2、3分別是提示1755、8528和6375。
 
 [註7]
