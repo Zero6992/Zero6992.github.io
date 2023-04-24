@@ -10,7 +10,7 @@
 # BASIC INFORMATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
 info:
   # Site title
-  title: Zeros and Ones
+  title: Zero and One
   # Author name
   author: Zero6992
   # Site URL
@@ -45,12 +45,12 @@ global:
     # Chinese fonts
     chinese: 
       enable: false # Whether to enable custom chinese font
-      family:  # Font family
-      url:  # Font URL to CSS file
+      family: Noto Serif   # Font family
+      url: https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;900&family=Noto+Serif+TC:wght@500&display=swap # Font URL to CSS file
     # English fonts
     english: 
       enable: false # Whether to enable custom chinese font
-      family:  # Font family
+      family: # Font family
       url:  # Font URL to CSS file
   # Content max width
   content_max_width: 1000px
@@ -75,7 +75,7 @@ global:
   # Whether to enable open graph
   open_graph: true
 # SITE CUSTOMIZATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
-    
+
 
 # FONTAWESOME >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
 fontawesome: # Pro v6.2.1
