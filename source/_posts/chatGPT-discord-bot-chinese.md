@@ -6,13 +6,11 @@ draft: false
 tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 ---
 
-> 此頁面程式碼在 [https://github.com/Zero6992/chatGPT-discord-bot](https://github.com/Zero6992/chatGPT-discord-bot)
+> 此頁面的程式碼開源在 [https://github.com/Zero6992/chatGPT-discord-bot](https://github.com/Zero6992/chatGPT-discord-bot)
 
 ---
 
-嗨! 這是一個讓你能夠在Discord架設你自己的 AI 機器人的教學文章(目前支援ChatGPT, Bing, Bard)，廢話不多說就進入正題了
-
-### 設置
+嗨! 這是一個讓你能夠在Discord架設你自己的 AI 機器人的教學文章(目前支援ChatGPT, Bing, Bard)
 
 #### ⚠️ ⚠️ ⚠️ 安裝前請注意 ⚠️ ⚠️ ⚠️
 
@@ -23,7 +21,7 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 * **將資料夾中的檔案 `.env.dev` 重新命名為 `.env`**
 
 * 建議的 Python 版本 `3.9` ~ `3.11`
-#### 第一步：創立一個 Discord 機器人
+### 步驟一：創立一個 Discord 機器人
 
 1. 前往 https://discord.com/developers/applications 創建一個 application
 2. 在該application下建立一個 Discord 機器人
