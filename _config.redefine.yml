@@ -40,17 +40,16 @@ colors:
 
 # SITE CUSTOMIZATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
 global:
-  # Custom fonts
-    # Chinese fonts
-  chinese:
-    enable: true # Whether to enable
-    family: Noto Serif TC # Font family
-    url: https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap
-  # English fonts
-  english:
-    enable: false # Whether to enable custom chinese font
-    family: # Font family
-    url:  # Font URL to CSS file
+  font:
+    chinese:
+      enable: true # Whether to enable
+      family: Noto Serif TC # Font family
+      url: https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap
+    # English fonts
+    english:
+      enable: false # Whether to enable custom chinese font
+      family: # Font family
+      url:  # Font URL to CSS file
   # Content max width
   content_max_width: 1500px
   # Sidebar width
@@ -101,7 +100,7 @@ home_banner:
   title: Zero6992
   # Home banner subtitle
   subtitle:
-    text: [] # subtitle text, array
+    text: ['Hello, I‘m currently an undergraduate student based in Taiwan', '你好! 我是來自台灣的大學生'] # subtitle text, array
     typing_speed: 100 # Typing speed (ms)
     backing_speed: 80 # Backing speed (ms)
     starting_delay: 500 # Start delay (ms)
@@ -109,11 +108,11 @@ home_banner:
     loop: true # Whether to loop
     smart_backspace: true # Whether to smart backspace
   # Color of home banner text
-  text_color: 
+  text_color:
     light: "#fff" # light mode
     dark: "#d1d1b6" # dark mode
   # Specific style of the text
-  text_style: 
+  text_style:
     # Title font size
     title_size: 2.8rem
     # Subtitle font size
@@ -121,7 +120,7 @@ home_banner:
     # Line height between title and subtitle
     line_height: 1.2
   # Home banner custom font
-  custom_font: 
+  custom_font:
     # Whether to enable custom font
     enable: true
     # Font family
@@ -153,11 +152,17 @@ navbar:
     transparency: 35 #percent (10-99)
   # Navbar links
   links:
-    Home: 
-      path: / 
+    Home:
+      path: /
       icon: fa-regular fa-house # can be empty
-    # Archives: 
-    #   path: /archives 
+    Github:
+        path: https://github.com/Zero6992
+        icon: fa-brands fa-github
+    About:
+        path: /about
+        icon: fa-regular fa-user
+    # Archives:
+    #   path: /archives
     #   icon: fa-regular fa-archive # can be empty
     # Status: 
     #   path: https://status.evanluo.top/
@@ -230,7 +235,7 @@ articles:
     count: true # Whether to display word count
     min2read: true # Whether to display reading time
   # Author label
-  author_label: 
+  author_label:
     enable: true # Whether to enable
     auto: false # Whether to automatically add author label, e.g. Lv1, Lv2, Lv3...
     list: [""]
