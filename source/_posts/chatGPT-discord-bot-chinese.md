@@ -38,7 +38,7 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 
 6. 通過 OAuth2 URL 生成器邀請你的機器人加入你的伺服器
 
-   ![image](https://user-images.githubusercontent.com/89479282/205949600-0c7ddb40-7e8247a0-b59a-b089f929d177.png)
+   ![image](https://user-images.githubusercontent.com/89479282/205949600-0c7ddb40-7e82-47a0-b59a-b089f929d177.png)
 
 到這裡你就完成建立了你的Discord機器人，接下來我們要將Discord機器人連上AI，第二步有許多選項，你只需要完成一種就能使用其中一種model
 > 目前總共有支援以下模型
