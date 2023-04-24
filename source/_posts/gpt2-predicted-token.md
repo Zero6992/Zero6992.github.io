@@ -1,5 +1,5 @@
 ---
-title: "GPT模型是如何知道要輸出'an'而不是'a'?"
+title: "GPT 模型如何判斷該用 an 還是 a ?"
 description: "GPT模型的秘密"
 date: 2023-04-17T16:19:00+08:00
 draft: false
@@ -7,29 +7,29 @@ tags: [gpt, ChatGPT]
 mathjax: true
 ---
 
-> 本文原文為 We Found An Neuron in GPT-2，作者為Clement Neo，是一位倫敦的大學生，這篇文章是他在黑客松中題目的延伸，2月初看到就覺得這篇文章很有趣，可以翻譯一下，結果拖到現在，這篇文章像偵探一樣一步一步的找尋LLM處理特定token的神經元，以及如何判斷該神經元是否就是預測該 token 的神經元。本文透過AI翻譯後，再做修改
+> 本文譯自 [We Found An Neuron in GPT-2](https://clementneo.com/posts/2023/02/11/we-found-an-neuron)，作者為Clement Neo，是一位倫敦的大學生，這篇文章是他在黑客松中題目的延伸，2月初看到就覺得這篇文章很有趣，可以翻譯一下，結果拖到現在，這篇文章像偵探一樣一步一步的找尋LLM處理特定token的神經元，以及如何判斷該神經元是否就是預測該 token 的神經元。本文透過AI翻譯後，再做修改
 
-## 我們在 GPT-2 中找到了'an'神經元
+## 我們在 GPT-2 中找到了"an"神經元
 `作者：Joseph Miller、Clement Neo`
 
-這個研究始於一個問題：GPT-2 是如何知道何時該使用 "an" 而不是 "a" 的？以人類來說，這個選擇取決於後面的單詞是否以母音為開頭，但 GPT-2 一次只能輸出一個單詞（準確來說，1個 token），他是如何判斷的？
+這個研究始於一個問題：***GPT-2 是如何知道何時該使用 "an" 而不是 "a" ？***以人類來說，這個選擇取決於後面的單詞是否以母音為開頭，但 GPT-2 一次只能輸出一個單詞（準確來說，1個 token），他是如何判斷的？
 
-雖然我們還沒有完整的答案，但我們確實在 GPT-2 Large 模型中找到了一個對於 gpt 預測 " an" 這個 token 至關重要的單個 MLP 神經元。同時，我們也發現這個神經元的權重與 " an" token 的嵌入相對應，這讓我們找到了其他也能預測特定 token 的神經元。
+雖然我們還沒有完整的答案，但我們確實在 GPT-2 Large 模型中找到了一個對於 gpt 預測 " an" 這個 token 至關重要的單個 MLP 神經元。同時，我們也發現這個神經元的權重與 " an" token 的嵌入相對應，這讓我們能夠以相同方法找到其他也能預測特定 token 的神經元。
 
 ### 發現神經元
 
 ##### 選擇提示詞(prompt)
-想出一個能讓 GPT-2 輸出 " an"（前面的空格是token的一部分）作為最佳預測的提示是非常困難。我們實驗後最後放棄了 GPT-2_small 模型，轉向 GPT-2_large。稍後我們將會看到，即使是 GPT-2_large 也會系統性地低估 " an" 這個 token。這可能是因為較小的語言模型依賴於 " a" 的頻率更高，更有可能做出最佳猜測。我們最終找到的能讓 " an" 的概率達到 64% 的提示是：
+想出一個能讓 GPT-2 輸出 " an"（前面的空格是token的一部分）作為最佳預測的提示(prompt)是非常困難。我們實驗後最後放棄了 GPT-2_small 模型，轉向 GPT-2_large。稍後我們將會看到，即使是 GPT-2_large 也會系統性地低估 " an" 這個 token。這可能是因為較小的語言模型依賴於 " a" 的頻率更高，更有可能做出最佳猜測。我們最終找到的能讓 " an" 的機率達到 64% 的提示是：
 
 > “I climbed up the pear tree and picked a pear. I climbed up the `apple` tree and picked”
 
-第一句是必要的，因為它可以讓模型朝著不定冠詞的方向前進，如果沒有第一句，模型會做出其他預測，例如: "[picked] up"
+第一句是必要的，因為它可以讓模型朝著不定冠詞的預測方向前進，如果沒有第一句，模型會做出其他預測，例如: "[picked] up"
 
 在繼續之前，讓我們快速回顧一下 [Transformer 架構](https://transformer-circuits.pub/2021/framework/index.html) 。每個注意力區塊和 MLP 都會將輸入加到殘差流(residual stream)中。
    ![image](https://user-images.githubusercontent.com/89479282/232722119-09e06fca-baab-48e6-b887-4ca3c91cdd48.png)
 
 #### Logit 透鏡(Logit Lens)
-使用 [logit 透鏡](https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens) 這種技巧，我們在模型的每層之間從殘差流中取出 logit，並繪製 logit(' an') 和 logit(' a') 之間的差異。我們在第 31 層的 MLP 之後發現了一個大的峰值，如下圖。
+使用 [logit 透鏡](https://www.lesswrong.com/posts/AcKRB8wDpdaN6v6ru/interpreting-gpt-the-logit-lens) 這種技巧，我們在模型的每層之間從殘差流中取出 logit，並繪製 logit(" an") 和 logit(" a") 之間的差異。我們在第 31 層的 MLP 之後發現了一個大的峰值，如下圖。
 
 
    ![image](https://user-images.githubusercontent.com/89479282/232725226-748c4121-8afe-49bf-8e03-49cd58f9d083.png)
@@ -209,7 +209,7 @@ Neel Nanda 對 MLP 第0層的看法：
 
 ![image](https://user-images.githubusercontent.com/89479282/233886186-94185a3f-d7da-4c88-8a87-bdb14572dfe9.png)
 
-起初，看起來這些'禁止的token'都與一個'禁止的神經元'（第35層神經元3354）相關，它們都與該神經元非常一致。但實際上，如果我們繪製許多其他神經元的最一致token，我們也會看到一些這樣的奇怪token位於排名靠前的位置。我們的初步假設是，這可能與[hubness effect(集束效應)](https://www.lesswrong.com/posts/Ya9LzwEbfaAMY8ABo/?commentId=M2uAwsCus2adqQsGc)有關。
+起初，看起來這些"禁止的token"都與一個"禁止的神經元"（第35層神經元3354）相關，它們都與該神經元非常一致。但實際上，如果我們繪製許多其他神經元的最一致token，我們也會看到一些這樣的奇怪token位於排名靠前的位置。我們的初步假設是，這可能與[hubness effect(集束效應)](https://www.lesswrong.com/posts/Ya9LzwEbfaAMY8ABo/?commentId=M2uAwsCus2adqQsGc)有關。
 
 ##### [註6]
 Neuroscope 數據對於這個神經元並不可用，所以我們從 pile-10k 資料集中選擇了最大激發數據集案例。文本1、2、3分別是提示1755、8528和6375。
