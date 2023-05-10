@@ -1,7 +1,7 @@
 ---
 title: "建立自己的ChatGPT Discord機器人"
 description: "ChatGPT Discord 機器人"
-date: 2023-03-09T15:49:00+08:00
+date: 2023-03-10T14:49:00+08:00
 draft: false
 tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 ---
