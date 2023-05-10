@@ -1,5 +1,5 @@
 ## About me
-Hi there! I'm a junior student from Taiwan majoring in Computer Science. I have experience in web development, but recently, I've been fascinated with AI-related applications and contributing to open-source projects.
+Hello! I am a college student based in Taiwan, majoring in Computer Science. I have experience in web development and familiar with both front-end and back-end, but AI-related applications have caught my attention lately, and I've been contributing to some open-source projects
 
 Here are more details about me:
 
@@ -14,7 +14,7 @@ Here are some of the projects I've contributed to:
 I am familiar with the following programming languages, skills, database and frameworks:
 
 * C, Python, JavaScript, TypeScript
-* CSS/HTML
+* CSS3 / HTML5
 * Docker, Git
 * MySQL, MongoDB, GraphQL
 * React, Vue3, Tailwind, Element Plus
@@ -24,9 +24,9 @@ When I'm not coding, I enjoy:
 
 * Skateboarding 🛹
 * Assembling computers 💻
-* Watching TV series and movies 🎬 (Colony is one of my favorites!)
+* Watching TV series and movies 🎬 | 🌌 Interstellar is my favorite movie
 * Hiking 🌄
-* Traveling ✈️ (Japan is my favorite country!)
+* Traveling ✈️ | 🇯🇵 Japan is my favorite country
 
 #### Contact Me
 Feel free to reach out to me at zero69992@gmail.com if you have any questions or just want to say hi!
