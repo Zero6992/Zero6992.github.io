@@ -1,7 +1,7 @@
 ---
 title: "建立自己的ChatGPT Discord機器人"
 description: "ChatGPT Discord 機器人"
-date: 2023-03-10T15:49:00+08:00
+date: 2023-03-09T15:49:00+08:00
 draft: false
 tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 ---
@@ -18,9 +18,9 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 
 * 執行 ```pip3 install -r requirements.txt``` 下載相依套件
 
-* **將資料夾中的檔案 `.env.dev` 重新命名為 `.env`**
+* **將資料夾中的檔案 `.env.example` 重新命名為 `.env`**
 
-* 建議的 Python 版本 `3.9` ~ `3.11`
+* 建議的 Python 版本 `3.9` 以上
 ### 步驟一：創立一個 Discord 機器人
 
 1. 前往 https://discord.com/developers/applications 創建一個 application
