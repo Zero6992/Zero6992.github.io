@@ -1,13 +1,13 @@
 ---
-title: "GPT 模型如何判斷該用 an 還是 a ?"
-description: "GPT模型的秘密"
+title: "類神經網路中神經元對特定Token預測的影響"
+description: "深入了解GPT語言模型如何通過類神經網路中的神經元來預測Token。本文將探討神經元與Token之間的一致性及互斥一致性，揭示它們在語言理解與生成過程中的重要性"
 date: 2023-04-17T16:19:00+08:00
 draft: false
-tags: [gpt, ChatGPT]
+tags: [gpt, gpt-2, ChatGPT, 類神經網路, 大型語言模型]
 mathjax: true
 ---
 
-> 本文譯自 [We Found An Neuron in GPT-2](https://clementneo.com/posts/2023/02/11/we-found-an-neuron)，作者為Clement Neo，是一位倫敦的大學生，這篇文章是他在黑客松中題目的延伸，2月初看到就覺得這篇文章很有趣，可以翻譯一下，結果拖到現在，這篇文章像偵探一樣一步一步的找尋LLM處理特定token的神經元，以及如何判斷該神經元是否就是預測該 token 的神經元。本文透過AI翻譯後，再做修改
+> 本文翻譯自 [We Found An Neuron in GPT-2](https://clementneo.com/posts/2023/02/11/we-found-an-neuron)，作者Clement Neo 是一位倫敦的大學生。這篇文章源自他在黑客松中的題目延伸，早在2月初我就發現這篇文章相當有趣並決定翻譯它，但開學後到現在才趁空檔完成。本文像一部偵探故事，逐步揭示LLM在處理特定token時所涉及的神經元，以及如何判定這些神經元是否確實負責預測相應的token。
 
 ## 我們在 GPT-2 中找到了"an"神經元
 `作者：Joseph Miller、Clement Neo`
