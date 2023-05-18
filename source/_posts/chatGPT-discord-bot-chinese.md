@@ -40,10 +40,10 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 
    ![image](https://user-images.githubusercontent.com/89479282/205949600-0c7ddb40-7e82-47a0-b59a-b089f929d177.png)
 
-到這裡你就完成建立了你的Discord機器人，接下來我們要將Discord機器人連上AI，第二步有許多選項，你只需要完成一種就能使用其中一種model
+**到這裡你就完成建立了你的Discord機器人，接下來我們要將Discord機器人連上AI，第二步有許多選項，你只需要完成一種就能使用其中一種model**
 > 目前總共有支援以下模型
 >   * `OFFICIAL-GPT-3.5`: GPT-3.5 模型
->   * `OFFICIAL-GPT-4.0`: GPT-4.0 模型（你的OpenAI帳號要可以調用 gpt-4 模型）
+>   * `OFFICIAL-GPT-4.0`: GPT-4.0 模型（你的OpenAI帳號要可以調用 gpt-4 API）
 >   * `Website ChatGPT-3.5`: 網站 ChatGPT-3.5 模型（非官方，反向ChatGPT網站的API，必須要是ChatGPT plus 帳號）
 >   * `Website ChatGPT-4.0`: 網站 ChatGPT-4.0 模型（非官方，反向ChatGPT網站的API，必須要是ChatGPT plus 帳號）
 >   * `Bard`: Google Bard 模型（免費）
@@ -63,31 +63,11 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
 4. 現在你就完成 OpenAI API 的密鑰驗證，可以使用 OFFICIAL-GPT-3.5 以及 OFFICIAL-GPT-4.0 了
 
 5. 如果你只需要使用 GPT 模型，可以直接前往步驟三
-### 步驟二：Website ChatGPT 認證 - 2 種方法
+### 步驟二：Website ChatGPT 認證
 
 > ⚠️ 注意 ⚠️
 > Website ChatGPT 目前只有支援 ChatGPT Plus 帳號
 
-#### 方法 1: 電子郵件/密碼認證（不支援 Google/Microsoft 帳戶）
-
-1. 在 https://chat.openai.com/chat 上創建一個帳戶並登入
-
-2. 使用 `F12` 打開控制台
-3. 打開 `Application` > Cookies
-
-   ![image](https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png)
-
-4. 從 cookies 中複製 `_puid` 並粘貼到 `.env` 下的 `PUID`
-
-5. 將你的電子郵件保存到 `.env` 中的 `OPENAI_EMAIL`
-
-6. 將你的密碼保存到 `.env` 中的 `OPENAI_PASSWORD`
-
-7. 完成Website ChatGPT驗證，你可以調用 Website ChatGPT-3.5 與 Website ChatGPT-4.0 了
-
-8. 如果你只需要使用 GPT 模型，可以直接前往步驟三
-
-### 方法 2: ACCESS token 認證
 1. 打開 https://chat.openai.com/api/auth/session
 
 2. 使用 `F12` 打開控制台
@@ -148,11 +128,23 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
    * 運行 `docker stop <BOT CONTAINER ID>` 以停止運行的機器人
 
 > 可以利用像heroku這類雲端供應商來host機器人
+#### 自訂選項：自動獲取cookies
+>  * 這個功能可以讓你自動獲得Google Bard或Microsoft Bing的所需cookies，而不需要在手動填入
 
-#### 自訂義設置：取消日誌記錄(logging)
+* 要啟用此功能，請將你的Chrome瀏覽器版本填在`.env`中的`chrome_version`
+* Google Bard
+   1. 在`.env`中將`bard_enable_auto_login`設置為`True`
+   2. 在`.env`中填寫`google_account`和`google_password`
+
+      注意：自動登錄僅適用於未啟用2FA的Google帳戶
+* Microsoft Bing
+   1. 在`.env`中將`bing_enable_auto_login`設置為`True`
+   2. 然後在`.env`中填寫`bing_account`和`bing_password`
+
+#### 自訂選項：取消日誌記錄(logging)
 
 * 將 `.env` 中的 `LOGGING` 值設為 False
-#### 自訂義設置：設置系統提示(system prompt)
+#### 自訂選項：設置系統提示(system prompt)
 
 * 系統提示將在機器人首次啟動或重置時調用
 * 你可以通過修改 `system_prompt.txt` 中的內容來設置它 
@@ -167,7 +159,7 @@ tags: [ChatGPT Discord 機器人, ChatGPT, Discord 機器人]
    2. 粘貼到 `.env` 下的 `DISCORD_CHANNEL_ID`
 
 
-#### 現有功能
+#### 指令
 
 * `/chat [訊息]` 和 ChatGPT 聊天！
 * `/draw [提示]` 用 Dalle2 模型生成圖像 (必須填入Openai API key)
