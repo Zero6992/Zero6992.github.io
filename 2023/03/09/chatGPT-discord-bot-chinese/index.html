@@ -32,10 +32,9 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/89479282/205949600-0c7ddb40-7e82-47a0-b59a-b089f929d177.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/89479282/207970699-2e0cb671-8636-4e27-b1f3-b75d6db9b57e.PNG">
 <meta property="og:image" content="https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/89479282/207697217-e03357b3-3b3d-44d0-b880-163217ed4a49.PNG">
 <meta property="article:published_time" content="2023-03-09T06:49:00.000Z">
-<meta property="article:modified_time" content="2023-05-10T07:06:12.765Z">
+<meta property="article:modified_time" content="2023-05-18T09:15:17.232Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="ChatGPT Discord 機器人">
 <meta property="article:tag" content="ChatGPT">
@@ -302,8 +301,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-05-10 07:06:12</span>
-            <span class="mobile">2023-05-10 07:06</span>
+            <span class="desktop">2023-05-18 09:15:17</span>
+            <span class="mobile">2023-05-18 09:15</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -395,12 +394,12 @@
                 ></p>
 </li>
 </ol>
-<p>到這裡你就完成建立了你的Discord機器人，接下來我們要將Discord機器人連上AI，第二步有許多選項，你只需要完成一種就能使用其中一種model</p>
+<p><strong>到這裡你就完成建立了你的Discord機器人，接下來我們要將Discord機器人連上AI，第二步有許多選項，你只需要完成一種就能使用其中一種model</strong></p>
 <blockquote>
 <p>目前總共有支援以下模型</p>
 <ul>
 <li><code>OFFICIAL-GPT-3.5</code>: GPT-3.5 模型</li>
-<li><code>OFFICIAL-GPT-4.0</code>: GPT-4.0 模型（你的OpenAI帳號要可以調用 gpt-4 模型）</li>
+<li><code>OFFICIAL-GPT-4.0</code>: GPT-4.0 模型（你的OpenAI帳號要可以調用 gpt-4 API）</li>
 <li><code>Website ChatGPT-3.5</code>: 網站 ChatGPT-3.5 模型（非官方，反向ChatGPT網站的API，必須要是ChatGPT plus 帳號）</li>
 <li><code>Website ChatGPT-4.0</code>: 網站 ChatGPT-4.0 模型（非官方，反向ChatGPT網站的API，必須要是ChatGPT plus 帳號）</li>
 <li><code>Bard</code>: Google Bard 模型（免費）</li>
@@ -425,34 +424,10 @@
 <li><p>如果你只需要使用 GPT 模型，可以直接前往步驟三</p>
 </li>
 </ol>
-<h3 id="步驟二：Website-ChatGPT-認證-2-種方法"><a href="#步驟二：Website-ChatGPT-認證-2-種方法" class="headerlink" title="步驟二：Website ChatGPT 認證 - 2 種方法"></a>步驟二：Website ChatGPT 認證 - 2 種方法</h3><blockquote>
+<h3 id="步驟二：Website-ChatGPT-認證"><a href="#步驟二：Website-ChatGPT-認證" class="headerlink" title="步驟二：Website ChatGPT 認證"></a>步驟二：Website ChatGPT 認證</h3><blockquote>
 <p>⚠️ 注意 ⚠️<br>Website ChatGPT 目前只有支援 ChatGPT Plus 帳號</p>
 </blockquote>
-<h4 id="方法-1-電子郵件-x2F-密碼認證（不支援-Google-x2F-Microsoft-帳戶）"><a href="#方法-1-電子郵件-x2F-密碼認證（不支援-Google-x2F-Microsoft-帳戶）" class="headerlink" title="方法 1: 電子郵件&#x2F;密碼認證（不支援 Google&#x2F;Microsoft 帳戶）"></a>方法 1: 電子郵件&#x2F;密碼認證（不支援 Google&#x2F;Microsoft 帳戶）</h4><ol>
-<li><p>在 <a class="link"   target="_blank" rel="noopener" href="https://chat.openai.com/chat" >https://chat.openai.com/chat <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 上創建一個帳戶並登入</p>
-</li>
-<li><p>使用 <code>F12</code> 打開控制台</p>
-</li>
-<li><p>打開 <code>Application</code> &gt; Cookies</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://user-images.githubusercontent.com/89479282/229298001-41ab4f61-5b79-4c65-b08c-708ee6fe2304.png"
-                      alt="image"
-                ></p>
-</li>
-<li><p>從 cookies 中複製 <code>_puid</code> 並粘貼到 <code>.env</code> 下的 <code>PUID</code></p>
-</li>
-<li><p>將你的電子郵件保存到 <code>.env</code> 中的 <code>OPENAI_EMAIL</code></p>
-</li>
-<li><p>將你的密碼保存到 <code>.env</code> 中的 <code>OPENAI_PASSWORD</code></p>
-</li>
-<li><p>完成Website ChatGPT驗證，你可以調用 Website ChatGPT-3.5 與 Website ChatGPT-4.0 了</p>
-</li>
-<li><p>如果你只需要使用 GPT 模型，可以直接前往步驟三</p>
-</li>
-</ol>
-<h3 id="方法-2-ACCESS-token-認證"><a href="#方法-2-ACCESS-token-認證" class="headerlink" title="方法 2: ACCESS token 認證"></a>方法 2: ACCESS token 認證</h3><ol>
+<ol>
 <li><p>打開 <a class="link"   target="_blank" rel="noopener" href="https://chat.openai.com/api/auth/session" >https://chat.openai.com/api/auth/session <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 </li>
 <li><p>使用 <code>F12</code> 打開控制台</p>
@@ -522,10 +497,31 @@
 <blockquote>
 <p>可以利用像heroku這類雲端供應商來host機器人</p>
 </blockquote>
-<h4 id="自訂義設置：取消日誌記錄-logging"><a href="#自訂義設置：取消日誌記錄-logging" class="headerlink" title="自訂義設置：取消日誌記錄(logging)"></a>自訂義設置：取消日誌記錄(logging)</h4><ul>
+<h4 id="自訂選項：自動獲取cookies"><a href="#自訂選項：自動獲取cookies" class="headerlink" title="自訂選項：自動獲取cookies"></a>自訂選項：自動獲取cookies</h4><blockquote>
+<ul>
+<li>這個功能可以讓你自動獲得Google Bard或Microsoft Bing的所需cookies，而不需要在手動填入</li>
+</ul>
+</blockquote>
+<ul>
+<li>要啟用此功能，請將你的Chrome瀏覽器版本填在<code>.env</code>中的<code>chrome_version</code></li>
+<li>Google Bard<ol>
+<li><p>在<code>.env</code>中將<code>bard_enable_auto_login</code>設置為<code>True</code></p>
+</li>
+<li><p>在<code>.env</code>中填寫<code>google_account</code>和<code>google_password</code></p>
+<p>注意：自動登錄僅適用於未啟用2FA的Google帳戶</p>
+</li>
+</ol>
+</li>
+<li>Microsoft Bing<ol>
+<li>在<code>.env</code>中將<code>bing_enable_auto_login</code>設置為<code>True</code></li>
+<li>然後在<code>.env</code>中填寫<code>bing_account</code>和<code>bing_password</code></li>
+</ol>
+</li>
+</ul>
+<h4 id="自訂選項：取消日誌記錄-logging"><a href="#自訂選項：取消日誌記錄-logging" class="headerlink" title="自訂選項：取消日誌記錄(logging)"></a>自訂選項：取消日誌記錄(logging)</h4><ul>
 <li>將 <code>.env</code> 中的 <code>LOGGING</code> 值設為 False</li>
 </ul>
-<h4 id="自訂義設置：設置系統提示-system-prompt"><a href="#自訂義設置：設置系統提示-system-prompt" class="headerlink" title="自訂義設置：設置系統提示(system prompt)"></a>自訂義設置：設置系統提示(system prompt)</h4><ul>
+<h4 id="自訂選項：設置系統提示-system-prompt"><a href="#自訂選項：設置系統提示-system-prompt" class="headerlink" title="自訂選項：設置系統提示(system prompt)"></a>自訂選項：設置系統提示(system prompt)</h4><ul>
 <li><p>系統提示將在機器人首次啟動或重置時調用</p>
 </li>
 <li><p>你可以通過修改 <code>system_prompt.txt</code> 中的內容來設置它 </p>
@@ -550,7 +546,7 @@
 </ol>
 </li>
 </ul>
-<h4 id="現有功能"><a href="#現有功能" class="headerlink" title="現有功能"></a>現有功能</h4><ul>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><ul>
 <li><p><code>/chat [訊息]</code> 和 ChatGPT 聊天！</p>
 </li>
 <li><p><code>/draw [提示]</code> 用 Dalle2 模型生成圖像 (必須填入Openai API key)</p>
@@ -599,7 +595,7 @@
         <li><strong>Created at:</strong> 2023-03-09 06:49:00</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-05-10 07:06:12
+                <strong>Updated at:</strong> 2023-05-18 09:15:17
             </li>
         
         <li>
@@ -710,7 +706,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">建立自己的ChatGPT Discord機器人</div>
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E5%89%B5%E7%AB%8B%E4%B8%80%E5%80%8B-Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟一：創立一個 Discord 機器人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E5%AE%98%E6%96%B9-API-%E9%A9%97%E8%AD%89"><span class="nav-text">步驟二：官方 API 驗證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9AWebsite-ChatGPT-%E8%AA%8D%E8%AD%89-2-%E7%A8%AE%E6%96%B9%E6%B3%95"><span class="nav-text">步驟二：Website ChatGPT 認證 - 2 種方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-2-ACCESS-token-%E8%AA%8D%E8%AD%89"><span class="nav-text">方法 2: ACCESS token 認證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9AGoogle-Bard-%E8%AA%8D%E8%AD%89"><span class="nav-text">步驟二：Google Bard 認證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9AMicrosoft-Bing-%E9%A9%97%E8%AD%89"><span class="nav-text">步驟二：Microsoft Bing 驗證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E5%9C%A8%E6%A1%8C%E9%9D%A2%E4%B8%8A%E9%81%8B%E8%A1%8C%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟三：在桌面上運行機器人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E4%BD%BF%E7%94%A8-Docker-%E9%81%8B%E8%A1%8C%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟三：使用 Docker 運行機器人</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E5%89%B5%E7%AB%8B%E4%B8%80%E5%80%8B-Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟一：創立一個 Discord 機器人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E5%AE%98%E6%96%B9-API-%E9%A9%97%E8%AD%89"><span class="nav-text">步驟二：官方 API 驗證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9AWebsite-ChatGPT-%E8%AA%8D%E8%AD%89"><span class="nav-text">步驟二：Website ChatGPT 認證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9AGoogle-Bard-%E8%AA%8D%E8%AD%89"><span class="nav-text">步驟二：Google Bard 認證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9AMicrosoft-Bing-%E9%A9%97%E8%AD%89"><span class="nav-text">步驟二：Microsoft Bing 驗證</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E5%9C%A8%E6%A1%8C%E9%9D%A2%E4%B8%8A%E9%81%8B%E8%A1%8C%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟三：在桌面上運行機器人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E4%BD%BF%E7%94%A8-Docker-%E9%81%8B%E8%A1%8C%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟三：使用 Docker 運行機器人</span></a></li></ol>
 
     </div>
 </div>
