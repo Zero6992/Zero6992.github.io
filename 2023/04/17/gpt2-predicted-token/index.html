@@ -21,7 +21,7 @@
     
         <meta name="description" content="深入了解GPT語言模型如何通過類神經網路中的神經元來預測Token。本文將探討神經元與Token之間的一致性及互斥一致性，揭示它們在語言理解與生成過程中的重要性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="類神經網路中神經元對特定Token預測的影響">
+<meta property="og:title" content="類神經網路中神經元對特定單字的預測">
 <meta property="og:url" content="https://zero6992.me/2023/04/17/gpt2-predicted-token/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="深入了解GPT語言模型如何通過類神經網路中的神經元來預測Token。本文將探討神經元與Token之間的一致性及互斥一致性，揭示它們在語言理解與生成過程中的重要性">
@@ -45,8 +45,8 @@
 <meta property="og:image" content="https://user-images.githubusercontent.com/89479282/233319606-3e8f5dc0-43cf-47cb-aecd-33dd83d7334e.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/89479282/233319772-b1fafa3e-eb7f-4379-8abb-adcdd0065ada.png">
 <meta property="og:image" content="https://user-images.githubusercontent.com/89479282/233886186-94185a3f-d7da-4c88-8a87-bdb14572dfe9.png">
-<meta property="article:published_time" content="2023-04-17T00:19:00.000Z">
-<meta property="article:modified_time" content="2023-05-10T05:56:25.996Z">
+<meta property="article:published_time" content="2023-04-17T08:19:00.000Z">
+<meta property="article:modified_time" content="2023-05-23T08:10:18.555Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="ChatGPT">
 <meta property="article:tag" content="gpt">
@@ -65,7 +65,7 @@
     
     <title>
         
-            類神經網路中神經元對特定Token預測的影響 -
+            類神經網路中神經元對特定單字的預測 -
         
         Zero and One
     </title>
@@ -398,7 +398,7 @@ mjx-container[display="true"] + br {
             
             
                 <div class="article-title">
-                    <h1 class="article-title-regular">類神經網路中神經元對特定Token預測的影響</h1>
+                    <h1 class="article-title-regular">類神經網路中神經元對特定單字的預測</h1>
                 </div>
             
                 
@@ -420,15 +420,15 @@ mjx-container[display="true"] + br {
                             <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-04-17 00:19</span>
-        <span class="mobile">2023-04-17 00:19</span>
+        <span class="desktop">2023-04-17 08:19</span>
+        <span class="mobile">2023-04-17 08:19</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-05-10 05:56:25</span>
-            <span class="mobile">2023-05-10 05:56</span>
+            <span class="desktop">2023-05-23 08:10:18</span>
+            <span class="mobile">2023-05-23 08:10</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -476,7 +476,10 @@ mjx-container[display="true"] + br {
 
             <div class="article-content markdown-body">
                 <blockquote>
-<p>本文翻譯自 <a class="link" target="_blank" rel="noopener" href="https://clementneo.com/posts/2023/02/11/we-found-an-neuron">We Found An Neuron in GPT-2 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，作者Clement Neo 是一位倫敦的大學生。這篇文章源自他在黑客松中的題目延伸，早在2月初我就發現這篇文章相當有趣並決定翻譯它，但開學後到現在才趁空檔完成。本文像一部偵探故事，逐步揭示LLM在處理特定token時所涉及的神經元，以及如何判定這些神經元是否確實負責預測相應的token。</p>
+<p>本文譯自 <a class="link" target="_blank" rel="noopener" href="https://clementneo.com/posts/2023/02/11/we-found-an-neuron">We Found An Neuron in GPT-2 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，作者 Clement Neo 是一位倫敦的大學生。這篇文章源自他在黑客松中的題目延伸，2月的時候就在hackernews看到這篇文章，看完覺得這太好玩了，趁現在期中考結束試著再讀一次順便翻譯看看，有些用詞目前沒有公認的中文，所以看起來可能會有些彆扭，我會盡量在這些單字後加上原文，這篇文章涉及如何找尋 LLM 處理特定 token 時所涉及的神經元，畢竟現在類神經網路最為人詬病的就是就像個黑盒子一樣，沒有人知道中間是如何運作的，所以這篇文章也可以說是試圖去解釋類大型語言模型的運作方式!</p>
+</blockquote>
+<blockquote>
+<p>2023/05/10 更新: OpenAI最近也幹了類似的事，他們用 GPT-4 去標記 GPT-2 輸出時每個神經元對不同文字的輸出影響，試圖解釋 GPT-2 的運作方式<br><a class="link" target="_blank" rel="noopener" href="https://www.inside.com.tw/article/31577-openais-new-tool-attempts-to-explain-llm-behavior">OpenAI 用GPT-4 來理解 GPT-2 是什麼 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 </blockquote>
 <h2 id="我們在-GPT-2-中找到了”an”神經元"><a href="#我們在-GPT-2-中找到了”an”神經元" class="headerlink" title="我們在 GPT-2 中找到了”an”神經元"></a>我們在 GPT-2 中找到了”an”神經元</h2><p><code>作者：Joseph Miller、Clement Neo</code></p>
 <p>這個研究始於一個問題：<em><strong>GPT-2 是如何知道何時該使用 “an” 而不是 “a” ？</strong></em>以人類來說，這個選擇取決於後面的單詞是否以母音為開頭，但 GPT-2 一次只能輸出一個單詞（準確來說，1個 token），他是如何判斷的？</p>
@@ -589,12 +592,12 @@ mjx-container[display="true"] + br {
                 <div class="post-copyright-info">
                     <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> 類神經網路中神經元對特定Token預測的影響</li>
+        <li><strong>Title:</strong> 類神經網路中神經元對特定單字的預測</li>
         <li><strong>Author:</strong> Zero6992</li>
-        <li><strong>Created at:</strong> 2023-04-17 00:19:00</li>
+        <li><strong>Created at:</strong> 2023-04-17 08:19:00</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-05-10 05:56:25
+                <strong>Updated at:</strong> 2023-05-23 08:10:18
             </li>
         
         <li>
@@ -644,7 +647,7 @@ mjx-container[display="true"] + br {
                         <div class="article-next">
                             <a class="next"
                             rel="next"
-                            href="/2023/03/09/chatGPT-discord-bot-chinese/"
+                            href="/2023/03/08/chatGPT-discord-bot-chinese/"
                             >
                                 <span class="title flex-center">
                                     <span class="post-nav-title-item">建立自己的ChatGPT Discord機器人</span>
@@ -712,7 +715,7 @@ mjx-container[display="true"] + br {
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">類神經網路中神經元對特定Token預測的影響</div>
+        <div class="page-title">類神經網路中神經元對特定單字的預測</div>
         <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E5%80%91%E5%9C%A8-GPT-2-%E4%B8%AD%E6%89%BE%E5%88%B0%E4%BA%86%E2%80%9Dan%E2%80%9D%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">我們在 GPT-2 中找到了”an”神經元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">發現神經元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E4%B8%80%EF%BC%9A-%E6%88%91%E5%80%91%E5%8F%AF%E4%BB%A5%E9%80%9A%E9%81%8E%E5%B0%8D%E5%96%AE%E5%80%8B%E7%A5%9E%E7%B6%93%E5%85%83%E9%80%B2%E8%A1%8C%E6%BF%80%E7%99%BC%E4%BF%AE%E8%A3%9C-activation-patching-%E4%BE%86%E7%99%BC%E7%8F%BE%E5%85%B7%E6%9C%89%E9%A0%90%E6%B8%AC%E6%80%A7%E7%9A%84%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">發現一： 我們可以通過對單個神經元進行激發修補(activation patching)來發現具有預測性的神經元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E4%BA%8C%EF%BC%9A%E3%80%8Can-%E7%A5%9E%E7%B6%93%E5%85%83%E3%80%8D%E7%9A%84%E6%BF%80%E7%99%BC%E8%88%87%E3%80%8Can%E3%80%8Dtoken-%E9%A0%90%E6%B8%AC%E7%9B%B8%E9%97%9C%E6%80%A7"><span class="nav-text">發現二：「an-神經元」的激發與「an」token 預測相關性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E4%B8%89%EF%BC%9A%E6%88%91%E5%80%91%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E7%A5%9E%E7%B6%93%E5%85%83%E7%9A%84%E8%BC%B8%E5%87%BA%E4%B8%80%E8%87%B4%E6%80%A7%E4%BE%86%E6%89%BE%E5%88%B0%E9%A0%90%E6%B8%AC-token-%E7%9A%84%E7%89%B9%E5%AE%9A%E7%A5%9E%E7%B6%93%E5%85%83"><span class="nav-text">發現三：我們可以使用神經元的輸出一致性來找到預測 token 的特定神經元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%99%E4%B8%80%E5%88%87%E6%84%8F%E5%91%B3%E8%91%97%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-text">這一切意味著什麼？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TL-DR"><span class="nav-text">TL; DR</span></a></li></ol></li></ol>
 
     </div>
