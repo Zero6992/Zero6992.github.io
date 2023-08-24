@@ -9,6 +9,7 @@ Here are some of the projects I've contributed to:
 [ChatGPT](https://github.com/acheong08/ChatGPT)
 [ChatGPT-Discord-Bot](https://github.com/Zero6992/chatGPT-discord-bot)
 [Awesome-ChatGPT](https://github.com/Zero6992/awesome-chatgpt)
+[EdgeGPT](https://github.com/acheong08/EdgeGPT)
 
 #### Skills and Technologies
 I am familiar with the following programming languages, skills, database and frameworks:
