@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Zero6992">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://zero6992.me/2023/03/09/chatgpt-discord-bot-chinese/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="ChatGPT Discord 機器人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="建立自己的ChatGPT Discord機器人">
+<meta property="og:url" content="https://zero6992.me/2023/03/09/chatGPT-discord-bot-chinese/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ChatGPT Discord 機器人">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/Zero6992/chatGPT-discord-bot/assets/89479282/e20533a4-a563-4fcd-8ec5-d5beb20ae72a">
+<meta property="article:published_time" content="2023-03-09T06:49:00.000Z">
+<meta property="article:modified_time" content="2024-03-20T09:30:03.855Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="ChatGPT Discord 機器人">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="Discord 機器人">
+<meta property="article:tag" content="Gemini-Pro">
+<meta property="article:tag" content="gpt-4">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/Zero6992/chatGPT-discord-bot/assets/89479282/e20533a4-a563-4fcd-8ec5-d5beb20ae72a">
+    
+    
+        <!-- Google tag (gtag.js) -->
+        <script src="https://www.googletagmanager.com/gtag/js?id=G-FLZZCT89LL"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FLZZCT89LL');
+        </script>
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/89479282/230354320-72b60ed2-6abf-479a-8676-ac427c676503.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/89479282/230354320-72b60ed2-6abf-479a-8676-ac427c676503.png">
+    <meta name="theme-color" content="#30b067">
+    <link rel="shortcut icon" href="https://user-images.githubusercontent.com/89479282/230354320-72b60ed2-6abf-479a-8676-ac427c676503.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            建立自己的ChatGPT Discord機器人 -
+        
+        Zero and One
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        Zero and One
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;900&family=Noto+Serif+TC:wght@500&family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap" rel="stylesheet">
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap" rel="stylesheet">
+    
+    
+
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"zero6992.me","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.8,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":true,"family":"Noto Serif TC","url":"https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap"}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"recommendation","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#30b067","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Serif TC","url":"https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap"},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1500px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":true,"id":"G-FLZZCT89LL"}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Zero6992","subtitle":{"text":["Those who don't learn from the past, are destined to repeat it.","那些不能從歷史中吸取教訓的人注定要重蹈覆轍。","過去の失敗をすぐ忘れてしまい教訓にできない人は、必ず同じ失敗を繰り返す運命にある。"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":true,"family":"Noto Serif TC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;900&family=Noto+Serif+TC:wght@500&family=Roboto+Mono:wght@600&display=swap"},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/Zero6992","instagram":null,"zhihu":null,"twitter":"https://twitter.com/ha1fu","email":"zero69992@gmail.com","linkedin":"https://www.linkedin.com/in/zero6992"},"qrs":null}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.1","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Github":{"path":"https://github.com/Zero6992","icon":"fa-brands fa-github"},"About":{"path":"/about","icon":"fa-regular fa-user"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":{}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/04/01 04:20:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Zero and One
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   target="_blank" rel="noopener" href="https://github.com/Zero6992"
+                                        >
+                                    <i class="fa-brands fa-github fa-fw"></i>
+                                    GITHUB
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/about"
+                                        >
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           target="_blank" rel="noopener" href="https://github.com/Zero6992"
+                        >
+                            <span>
+                                GITHUB
+                            </span>
+                            
+                                <i class="fa-brands fa-github fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/about"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-regular fa-user fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">12</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">建立自己的ChatGPT Discord機器人</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://user-images.githubusercontent.com/89479282/230348631-4222d9cc-3700-4b53-ac9c-500627e19569.jpeg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Zero6992</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-03-09 06:49</span>
+        <span class="mobile">2023-03-09 06:49</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-03-20 09:30:03</span>
+            <span class="mobile">2024-03-20 09:30:03</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/ChatGPT-Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA/">ChatGPT Discord 機器人</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/ChatGPT/">ChatGPT</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA/">Discord 機器人</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Gemini-Pro/">Gemini-Pro</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/gpt-4/">gpt-4</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <blockquote>
+<p>此頁面的程式碼開源在 <a class="link"   target="_blank" rel="noopener" href="https://github.com/Zero6992/chatGPT-discord-bot" >https://github.com/Zero6992/chatGPT-discord-bot <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</blockquote>
+<hr>
+<p>這是一個讓你能夠在 Discord 架設你自己的 AI 機器人的教學</p>
+<ul>
+<li>目前聊天支援 Google Gemini-Pro, OPENAI GPT-4</li>
+<li>圖片生成支援 Bing, Google Gemini, OPENAI DALLE-3</li>
+</ul>
+<h4 id="⚠️-⚠️-⚠️-安裝前請注意-⚠️-⚠️-⚠️"><a href="#⚠️-⚠️-⚠️-安裝前請注意-⚠️-⚠️-⚠️" class="headerlink" title="⚠️ ⚠️ ⚠️ 安裝前請注意 ⚠️ ⚠️ ⚠️"></a>⚠️ ⚠️ ⚠️ 安裝前請注意 ⚠️ ⚠️ ⚠️</h4><ul>
+<li><p>執行 <code>git clone https://github.com/Zero6992/chatGPT-discord-bot.git</code> 將專案 clone 下來</p>
+</li>
+<li><p>執行 <code>pip3 install -r requirements.txt</code> 下載相依套件</p>
+</li>
+<li><p><strong>將資料夾中的檔案 <code>.env.example</code> 重新命名為 <code>.env</code></strong></p>
+</li>
+<li><p>建議 Python 版本 <code>3.9</code> +</p>
+</li>
+</ul>
+<h3 id="步驟一：創立一個-Discord-機器人"><a href="#步驟一：創立一個-Discord-機器人" class="headerlink" title="步驟一：創立一個 Discord 機器人"></a>步驟一：創立一個 Discord 機器人</h3><ol>
+<li><p>打開 <a class="link"   target="_blank" rel="noopener" href="https://discord.com/developers/applications" >https://discord.com/developers/applications <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 創建一個 application</p>
+</li>
+<li><p>在該 application 下建立一個 Discord 機器人</p>
+</li>
+<li><p>從機器人設定中拿到 token，並存到 <code>.env</code> 中的 <code>DISCORD_BOT_TOKEN</code></p>
+</li>
+<li><p>打開 MESSAGE CONTENT INTENT 調整至 <code>ON</code></p>
+</li>
+<li><p>通過 OAuth2 URL 生成網址邀請你的機器人加入你的伺服器</p>
+</li>
+</ol>
+<h3 id="步驟二：運行機器人"><a href="#步驟二：運行機器人" class="headerlink" title="步驟二：運行機器人"></a>步驟二：運行機器人</h3><ul>
+<li><p>在一般桌機上運行機器人：</p>
+<ol>
+<li>打開cmd</li>
+<li>到你安裝此專案的資料夾底下</li>
+<li>執行 <code>python3 main.py</code> or <code>python main.py</code></li>
+</ol>
+</li>
+<li><p>Docker 運行機器人：</p>
+<ol>
+<li>使用 <code>docker compose up -d</code> 創建一個 Docker 映像檔 &amp; 運行 Docker 容器</li>
+<li>檢查機器人是否運行正常 <code>docker logs -t chatgpt-discord-bot</code></li>
+</ol>
+</li>
+</ul>
+<h3 id="圖像生成"><a href="#圖像生成" class="headerlink" title="圖像生成"></a>圖像生成</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://github.com/Zero6992/chatGPT-discord-bot/assets/89479282/e20533a4-a563-4fcd-8ec5-d5beb20ae72a"
+                      alt="image"
+                ></p>
+<ul>
+<li><p>OpenAI DALLE3 圖像生成（需要 GPT Plus 帳號）</p>
+<ol>
+<li>登入你的 GPT PLUS 帳號</li>
+<li>打開  <a class="link"   target="_blank" rel="noopener" href="https://chat.openai.com/api/auth/session" >https://chat.openai.com/api/auth/session <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li>將其中的<code>access_token</code>貼到<code>.env</code>中<code>OPENAI_TOKEN</code>後方</li>
+</ol>
+</li>
+<li><p>Microsoft Bing 圖像生成</p>
+<ol>
+<li>打開 <a class="link"   target="_blank" rel="noopener" href="https://www.bing.com/chat" >https://www.bing.com/chat <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 登入你的 microsoft 帳號</li>
+<li>打開 <code>F12</code> &gt; 打開 <code>Application tab</code> 點擊 <code>Cookies</code></li>
+<li>找到 <code>_U</code> 將他的值貼到<code>.env</code>中<code>BING_COOKIE</code>的後方</li>
+</ol>
+</li>
+<li><p>Google Gemini 圖像生成</p>
+<ol>
+<li>打開 <a class="link"   target="_blank" rel="noopener" href="https://gemini.google.com/app" >https://gemini.google.com/app <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 登入你的 google 帳號</li>
+<li>打開 <code>F12</code> &gt; 打開 <code>Application tab</code> 點擊 <code>Cookies</code></li>
+<li>找到 <code>__Secure-1PSID</code> 將他的值貼到<code>.env</code>中<code>GOOGLE_PSID</code>的後方</li>
+</ol>
+</li>
+</ul>
+<h3 id="自訂選項"><a href="#自訂選項" class="headerlink" title="自訂選項"></a>自訂選項</h3><ul>
+<li>設置系統提示：修改 <code>system_prompt.txt</code> 中的內容，設置機器人啟動時的自動提示。</li>
+<li>取消日誌記錄：將 <code>.env</code> 中的 <code>LOGGING</code> 值設為 False。</li>
+</ul>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><ul>
+<li><code>/chat [訊息]</code> 和 ChatGPT&#x2F;Gemini 聊天</li>
+<li><code>/draw [提示]</code> 用 Gemini&#x2F;OpenAI&#x2F;Bing 生成圖像</li>
+<li><code>/switchpersona [人格]</code> 切換不同的 ChatGPT 人格模式</li>
+<li><code>/private</code> 切換到私人模式</li>
+<li><code>/public</code> 切換到公開模式</li>
+<li><code>/replyall</code> 在replyall模式和預設模式之間切換</li>
+<li><code>/reset</code> 清除 ChatGPT 的對話記錄</li>
+<li><code>/chat-model</code> 切換聊天模型<ul>
+<li><code>gpt-4</code>: GPT-4 模型</li>
+<li><code>Gemini</code>: Google Gemini 模型</li>
+</ul>
+</li>
+</ul>
+<h3 id="特殊功能"><a href="#特殊功能" class="headerlink" title="特殊功能"></a>特殊功能</h3><h4 id="切換人格"><a href="#切換人格" class="headerlink" title="切換人格"></a>切換人格</h4><ul>
+<li>使用 <code>/switchpersona</code> 指令來切換不同人格模式，如 <code>random</code>、<code>standard</code>、<code>dan</code> 等</li>
+</ul>
+<h4 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h4><ul>
+<li><code>public mode (default)</code>: 機器人直接在頻道回覆訊息</li>
+<li><code>private mode</code>: 機器人回覆的訊息只有使用指令的人能看到</li>
+<li><code>replyall mode</code>: 機器人將回覆頻道中的所有訊息，不需要使用斜線指令（<code>/chat</code> 將不可用）</li>
+</ul>
+<h4 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h4><ul>
+<li>某些人格模式可能生成不適當或令人不安的內容，請自行承擔使用風險。</li>
+</ul>
+<blockquote>
+<p>更多信息和更新，請參閱 <a class="link"   target="_blank" rel="noopener" href="https://github.com/Zero6992/chatGPT-discord-bot" >GitHub頁面 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</p>
+</blockquote>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 建立自己的ChatGPT Discord機器人</li>
+        <li><strong>Author:</strong> Zero6992</li>
+        <li><strong>Created at
+                :</strong> 2023-03-09 06:49:00</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2024-03-20 09:30:03
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://zero6992.me/2023/03/09/chatGPT-discord-bot-chinese/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/ChatGPT-Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA/">#ChatGPT Discord 機器人</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/ChatGPT/">#ChatGPT</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA/">#Discord 機器人</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Gemini-Pro/">#Gemini-Pro</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/gpt-4/">#gpt-4</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2023/04/17/gpt2-predicted-token/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">類神經網路中神經元對特定單字的預測</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'https://example.example.com',
+          lang: 'en-US',
+          dark: 'body[class~="dark-mode"]',
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+          recaptchaV3Key: "wasd",
+          
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">建立自己的ChatGPT Discord機器人</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E5%89%B5%E7%AB%8B%E4%B8%80%E5%80%8B-Discord-%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟一：創立一個 Discord 機器人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E9%81%8B%E8%A1%8C%E6%A9%9F%E5%99%A8%E4%BA%BA"><span class="nav-text">步驟二：運行機器人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%96%E5%83%8F%E7%94%9F%E6%88%90"><span class="nav-text">圖像生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E8%A8%82%E9%81%B8%E9%A0%85"><span class="nav-text">自訂選項</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%8A%9F%E8%83%BD"><span class="nav-text">特殊功能</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+            <div class="customize-info my-1">[object Object]</div>
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Zero6992</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        3 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.1</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>
