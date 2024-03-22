@@ -78,9 +78,8 @@ home_banner:
   title: Zero6992
   subtitle:
     text: [
-    "Those who don't learn from the past, are destined to repeat it.",
-    "那些不能從歷史中吸取教訓的人注定要重蹈覆轍。",
-    "過去の失敗をすぐ忘れてしまい教訓にできない人は、必ず同じ失敗を繰り返す運命にある。",
+    "Life is short, Break the Rules.",
+    "Those who don't learn from the past, are destined to repeat it."
     ]
     hitokoto:
       enable: false
@@ -225,11 +224,11 @@ comment:
 # FOOTER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
 footer:
   runtime: true
-  icon: '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>'
+  icon: '<i class="fa-solid fa-cog fa-spin" style="--fa-animation-duration: 15s;"></i>'
   start: 2023/04/01 04:20:00
   statistics: true
-  customize: {}
-  icp: {}
+  customize: false
+  icp: false
 # FOOTER <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 # INJECT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> start
