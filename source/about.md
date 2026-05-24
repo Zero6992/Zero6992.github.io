@@ -1,35 +1,35 @@
 ## About me
-Hello! I am a college student based in Taiwan, majoring in Computer Science. I have experience in web development and familiar with both front-end and back-end, but AI-related applications have caught my attention lately, and I've been contributing to some open-source projects
 
-Here are more details about me:
+CS undergrad based in Taiwan. Spent a while building web apps — comfortable on both frontend and backend — and lately I've been deep in AI tooling, mostly through open-source.
+
 
 ### Projects
 
-[ChatGPT-Discord-Bot](https://github.com/Zero6992/chatGPT-discord-bot)
+[ChatGPT-Discord-Bot](https://github.com/Zero6992/chatGPT-discord-bot) — my own project, brings ChatGPT and Gemini into Discord.
 
-Some of the projects I've contributed to:
+A few I've contributed to:
 
 [ChatGPT](https://github.com/acheong08/ChatGPT)
 [EdgeGPT](https://github.com/acheong08/EdgeGPT)
 [gpt4free](https://github.com/xtekky/gpt4free)
 
 
-#### Skills and Technologies
-I am familiar with the following programming languages, skills, database and frameworks:
+#### Stack
 
-* C, Python, JavaScript, TypeScript, GO
-* Vue3, Tailwind, Element Plus
+* C, Python, JavaScript, TypeScript, Go
+* Vue 3, Tailwind, Element Plus
 * MySQL, MongoDB, GraphQL
 * CSS3 / HTML5
 * Docker, Git
 
-#### Fun Facts About Me
+#### Off the keyboard
 
-* I enjoy skateboarding 🛹, hiking 🌄, and snowboarding 🏂.
-* My favorite novel is "The Three-Body Problem."
-* 🌌 "Interstellar" is my favorite movie.
-* I have climbed Mount Fuji in 2023.
+* Skateboarding 🛹, hiking 🌄, snowboarding 🏂.
+* Favorite novel: *The Three-Body Problem*.
+* 🌌 Favorite movie: *Interstellar*.
+* Summited Mount Fuji in 2023.
 
 
-#### Contact Me
-Feel free to reach out to me at zero69992@gmail.com if you have any questions or just want to say hi!
+#### Contact
+
+zero69992@gmail.com — drop me a line.
