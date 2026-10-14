@@ -3,16 +3,17 @@ title: Phantom Files Analytics — Privacy Policy
 comments: false
 ---
 
-*Last updated: 2026-10-14*
+*Last updated: 2026-10-14 (scheduling added)*
 
 **Who uses it.** Phantom Files Analytics is used only by the owner of the YouTube channels
 幻影檔案 and Phantom Files, signed in with their own Google account.
 
-**What it accesses.** With the owner's consent it uses two read-only Google scopes —
-`youtube.readonly` and `yt-analytics.readonly` — to read the owner's own channels: the list of
-uploaded videos and their YouTube Analytics and Reporting data (views, watch time, retention,
-traffic sources, thumbnail impressions and click-through rate, subscribers gained). It cannot
-upload, edit or delete anything, and it reads no other channel or user.
+**What it accesses.** With the owner's consent it uses two Google scopes — `yt-analytics.readonly`
+and `youtube` — on the owner's own channels only: it reads the list of uploaded videos and their
+YouTube Analytics and Reporting data (views, watch time, retention, traffic sources, thumbnail
+impressions and click-through rate, subscribers gained), and it sets the title, description, tags,
+thumbnail, privacy and scheduled publish time of videos the owner uploads. It reads or changes no
+other channel or user.
 
 **Where the data goes.** The numbers are stored on the owner's computer and in the owner's private
 code repository to build reports for the owner. They are not sold, shared, or used for advertising.
